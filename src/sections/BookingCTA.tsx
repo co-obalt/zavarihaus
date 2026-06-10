@@ -152,7 +152,7 @@ export default function BookingCTA() {
   return (
     <div
       ref={sectionRef}
-      className="relative w-full h-screen overflow-hidden flex flex-col items-center justify-center py-20 z-10"
+      className="relative w-full min-h-screen overflow-hidden flex flex-col items-center justify-center py-24 md:py-28 pb-32 md:pb-40 z-10"
     >
       {/* Parallax Background Layer */}
       <div
@@ -173,10 +173,10 @@ export default function BookingCTA() {
         <div className="text-center pt-10">
           <h2
             ref={headingRef}
-            className="font-display text-[42px] md:text-[72px] text-white font-light flex flex-wrap justify-center leading-tight mb-4"
+            className="font-display text-[clamp(34px,4.8vw,72px)] text-white font-light flex flex-wrap justify-center leading-[0.95] mb-4 max-w-[980px] mx-auto"
           >
             {words.map((word, idx) => (
-              <span key={idx} className="overflow-hidden inline-block mr-3 leading-none pb-2">
+              <span key={idx} className="overflow-hidden inline-block mr-2 md:mr-3 leading-none pb-2">
                 <span className="clip-word inline-block origin-bottom">
                   {word}
                 </span>
@@ -194,7 +194,7 @@ export default function BookingCTA() {
         {/* LOWER: Glassmorphic Booking Grid Box */}
         <div
           ref={cardRef}
-          className="booking-card-glass w-full max-w-[720px] p-6 md:p-10 mb-10 flex flex-col relative z-20"
+          className="booking-card-glass w-full max-w-[720px] p-6 md:p-10 mb-6 md:mb-10 flex flex-col relative z-20"
         >
           <span className="font-sans text-[9px] md:text-[10px] tracking-[0.3em] uppercase text-[#B8975A] font-medium mb-6">
             {cta.eyebrow}

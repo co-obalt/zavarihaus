@@ -201,7 +201,7 @@ export default function Gallery() {
             <img src={filteredPhotos[lightboxIndex].url} alt={filteredPhotos[lightboxIndex].alt} className="lightbox-image max-w-[90vw] max-h-[80vh] object-contain rounded-sm" onClick={(e) => e.stopPropagation()} referrerPolicy="no-referrer" />
             <div className="flex justify-between items-center w-full px-2">
               <span className="font-display italic text-white/70 text-[18px]">{filteredPhotos[lightboxIndex].alt}</span>
-              <span className="font-mono text-[10px] tracking-widest text-[#B8975A] uppercase font-semibold">{filteredPhotos[lightboxIndex].category} â€” {lightboxIndex + 1} / {filteredPhotos.length}</span>
+              <span className="font-mono text-[10px] tracking-widest text-[#B8975A] uppercase font-semibold">{filteredPhotos[lightboxIndex].category}{lightboxIndex + 1} / {filteredPhotos.length}</span>
             </div>
           </div>
           <button onClick={handleNext} className="absolute right-6 text-white/55 hover:text-[#B8975A] transition-colors duration-250 cursor-pointer p-4 hover:scale-110" aria-label="Next Slide Photo">

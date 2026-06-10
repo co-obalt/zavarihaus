@@ -2,22 +2,22 @@
   {
     "id": "testimonial-1",
     "quote": "The silence here is worth more than any luxury I have paid for before. Zavari Haus redefined what I thought a stay could be.",
-    "author": "Maryam A.",
+    "author": "Maryam A",
     "location": "Lahore",
-    "roomName": "Suite No. 3"
+    "roomName": "Suite No. 3.1"
   },
   {
     "id": "testimonial-2",
-    "quote": "From arrival to departure, every detail was anticipated. The team operates like telepaths.",
-    "author": "Hassan R.",
+    "quote": "From arrival to departure, every detail was perfectly handled. The team makes everything effortless.",
+    "author": "Hassan",
     "location": "Karachi",
-    "roomName": "The Penthouse"
+    "roomName": "Suite No. 2.2"
   },
   {
     "id": "testimonial-3",
-    "quote": "I have stayed in five-star hotels on three continents. Zavari Haus is the only place I have returned to twice.",
-    "author": "Zara M.",
+    "quote": "I have stayed in five-star hotels on three continents, but Zavari Haus is the only place I have returned to twice.",
+    "author": "Zara",
     "location": "Dubai",
-    "roomName": "Villa Retreat"
+    "roomName": "Suite No. 2.1"
   }
 ]

@@ -2,22 +2,22 @@
   {
     "id": "faq-1",
     "question": "What is the minimum stay duration?",
-    "answer": "Our properties require a minimum of two nights. Extended stays of 7+ nights receive preferential rates and additional concierge services."
+    "answer": "You can book for at least 1 night. If you want less, the minimum booking is still 1 full day."
   },
   {
     "id": "faq-2",
-    "question": "Is airport transfer included?",
-    "answer": "Complimentary airport transfers are included for all bookings of 3 nights or more. Private car service with professional chauffeur."
+    "question": "Do you offer airport transfers?",
+    "answer": "We do not include airport transfers, but you can request Uber or premium car services during your stay."
   },
   {
     "id": "faq-3",
-    "question": "Can I host private events at Zavari Haus?",
-    "answer": "Select properties accommodate intimate private gatherings of up to 20 guests. Prior arrangement required. Contact our concierge team directly."
+    "question": "Are pets allowed?",
+    "answer": "Pets are allowed only if they are well-behaved and won’t damage things like bedsheets or sofas, etc. A refundable pet deposit is required upon booking."
   },
   {
     "id": "faq-4",
     "question": "What is your cancellation policy?",
-    "answer": "Full refund for cancellations made 7 days prior to check-in. 50% refund within 3-7 days. No refund within 72 hours of arrival."
+    "answer": "Full refund for cancellations made 5 days prior to check-in. 50% refund within 2-4 days. No refund within 48 hours of arrival."
   },
   {
     "id": "faq-5",
@@ -26,7 +26,27 @@
   },
   {
     "id": "faq-6",
+    "question": "Can I host events?",
+    "answer": "Small gatherings may be allowed in some apartments. Contact our team to check if your apartment is suitable."
+  },
+  {
+    "id": "faq-7",
+    "question": "What amenities are included?",
+    "answer": "All apartments have Wi-Fi, air conditioning, clean linens, smart TVs and fully equipped kitchens. Some have premium extras like Balconies and coffee machines."
+  },
+  {
+    "id": "faq-8",
+    "question": "Is parking available?",
+    "answer": "Yes, 24/7 secure parking is available for free."
+  },
+  {
+    "id": "faq-9",
+    "question": "Can I request early check-in or late check-out?",
+    "answer": "Early check-in or late check-out may be possible depending on availability. Contact our team before booking."
+  },
+  {
+    "id": "faq-10",
     "question": "Is there 24/7 support available?",
-    "answer": "Our concierge team operates around the clock. You will be assigned a personal contact number upon confirmation of your reservation."
+    "answer": "Yes, our professional team is available 24/7. You will get a response within 1 hour."
   }
 ]

@@ -13,7 +13,7 @@ export default function Testimonials() {
       if (!isHoveredRef.current) {
         handleNext();
       }
-    }, 5000);
+    }, 3000);
 
     return () => clearInterval(interval);
   }, [activeIndex, testimonials.length]);
@@ -55,7 +55,7 @@ export default function Testimonials() {
       }}
     >
       <div className="max-w-[900px] w-full flex flex-col items-center">
-        <span className="font-display text-[72px] text-[#B8975A]/25 leading-none font-semibold mb-4 select-none">â€œ</span>
+        <span className="font-display text-[72px] text-[#B8975A]/25 leading-none font-semibold mb-4 select-none">Reviews</span>
 
         <div ref={testimonialContainerRef} className="w-full flex flex-col items-center text-center min-h-[220px]">
           <blockquote className="font-display text-[26px] md:text-[32px] italic text-[#1A1814] font-light leading-relaxed max-w-[750px]">
@@ -66,7 +66,7 @@ export default function Testimonials() {
             <span className="font-sans text-[12px] md:text-[13px] text-[#B8975A] tracking-[0.2em] font-medium uppercase">
               {testimonials[activeIndex].author}
             </span>
-            <span className="text-[#6B6560]/40 mx-2">â€”</span>
+            <span className="text-[#6B6560]/40 mx-2"> from </span>
             <span className="font-sans text-[11px] text-[#6B6560]/75 uppercase tracking-widest">
               {testimonials[activeIndex].location}
             </span>

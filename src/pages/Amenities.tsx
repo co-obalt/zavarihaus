@@ -82,7 +82,6 @@ export default function Amenities() {
                   <ul className="flex flex-col gap-4 select-none">
                     {amenity.bullets.map((bullet: string, bIdx: number) => (
                       <li key={bIdx} className="flex items-start gap-3 text-[#1A1814]/85">
-                        <span className="text-[#B8975A] font-bold">â€”</span>
                         <span className="font-sans text-[13px] md:text-[14px] text-[#6B6560]">{bullet}</span>
                       </li>
                     ))}

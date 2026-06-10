@@ -25,9 +25,9 @@ export default function KineticStatement() {
         const tl = gsap.timeline({
           scrollTrigger: {
             trigger: textRef.current,
-            start: 'top 80%',
-            end: 'bottom 40%',
-            scrub: 1,
+            start: 'top 88%',
+            end: 'bottom 65%',
+            scrub: 0.6,
           },
         });
 
@@ -38,7 +38,7 @@ export default function KineticStatement() {
               opacity: 1,
               ease: 'none',
             },
-            index * 0.06
+            index * 0.035
           );
         });
       }

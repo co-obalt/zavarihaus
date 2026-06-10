@@ -2,25 +2,25 @@
   "hero": {
     "segments": [
       {
-        "headline": "Where Silence Becomes Luxury.",
-        "subline": "Step inside. The noise of the world fades away."
+        "headline": "Welcome To Zavari Haus",
+        "subline": "Defining luxury & comfort stays in the heart of Lahore"
       },
       {
-        "headline": "Designed For Sacred Stillness.",
-        "subline": "Interiors crafted around deepest human calm."
+        "headline": "Peaceful Luxury Living",
+        "subline": "Effortless Comfort & Style"
       },
       {
-        "headline": "Touch. Light. Sacred Space.",
-        "subline": "Private sanctuaries that belong only to you."
+        "headline": "Private Urban Stay",
+        "subline": "Relax, unwind, and enjoy a stay made around your comfort"
       },
       {
-        "headline": "Welcome To Zavari Haus.",
-        "subline": "Defining the pinnacle of luxury stays in Pakistan."
+        "headline": "Lahore Feels Luxe",
+        "subline": "Close to top landmarks, dining, shopping & entertainment"
       }
     ]
   },
   "statement": {
-    "sentence": "Testing Text; we curate experiences that linger long after you leave.",
+    "sentence": "At Zavari Haus, we create refined stays that feel calm, comfortable, and memorable.",
     "stats": [
       { "value": 14, "suffix": "+", "label": "Properties" },
       { "value": 4.9, "suffix": "★", "label": "Rating" },
@@ -30,52 +30,48 @@
   "featuredSpaces": {
     "titleLineOne": "Featured",
     "titleLineTwo": "Spaces",
-    "description": "Impeccably detailed sanctuaries engineered for uninterrupted solitude.",
+    "description": "Discover our handpicked apartments, designed for comfort, style, and effortless living",
     "linkLabel": "Explore All Spaces",
     "linkPath": "/rooms"
   },
   "pillars": {
-    "eyebrow": "Distinctive Philosophy",
-    "title": "Our Core Pillars",
-    "description": "Every layer of Zavari Haus is meticulously engineered, balancing structural confidentiality with somatic luxury for an absolute sanctuary.",
+    "eyebrow": "Our Philosophy",
+    "title": "What Makes Us Different",
+    "description": "Every Zavari Haus stay is built around four essentials: privacy, comfort, service, and a memorable guest experience.",
     "items": [
       {
         "id": "privacy",
         "word": "Privacy",
-        "pronunciation": "/privacy/",
-        "subtitle": "Absolute spatial isolation.",
-        "description": "An uncompromising defensive barrier against external noise. Walls engineered for acoustic silence, personal gated domains, and secure, completely unmonitored shorelines.",
-        "details": ["Acoustic dampening rating of STC 65", "Encrypted satellite communications", "Private heliport & deep-water wharf accessibility"]
+        "subtitle": "A peaceful stay with personal space",
+        "description": "Enjoy a calm and private environment where you can relax without disturbance. Our spaces are selected and prepared to give guests comfort, security, and peace of mind",
+        "details": ["Private and secure apartment spaces", "Quiet interiors for a peaceful stay", "Easy self-check-in and guest privacy"]
       },
       {
         "id": "comfort",
         "word": "Comfort",
-        "pronunciation": "/comfort/",
-        "subtitle": "Organic thermal and sensory symbiosis.",
-        "description": "Unconscious ease crafted from tactile intelligence. Low-velocity geothermal airflow, self-adjusting circadian luminosity, and custom-molded pure merino and raw silk linens.",
-        "details": ["Circadian biosympathetic circadian lighting", "Hypoallergenic climate isolation", "Floating mineral bath systems"]
+        "subtitle": "Everything prepared for easy living",
+        "description": "From clean bedding to well-designed interiors, every detail is arranged to make your stay smooth, relaxing, and comfortable from the moment you arrive",
+        "details": ["Premium bedding and soft linens", "Clean, fully prepared living spaces", "Air-conditioned rooms with modern amenities"]
       },
       {
         "id": "service",
         "word": "Service",
-        "pronunciation": "/service/",
-        "subtitle": "Intuitive preemptive care.",
-        "description": "A phantom support network that materializes only when anticipated. Every preference logged to a private localized profile, allowing services to manifest without a sound.",
-        "details": ["Dedicated butler trained in silent service", "Chauffeur fleet of electric custom-series sedans", "On-demand master culinary curation"]
+        "subtitle": "Helpful support whenever you need it",
+        "description": "Our team is here to make your stay simple and stress-free. From booking to check-out, we focus on quick communication, smooth handling, and reliable guest support",
+        "details": ["Responsive guest support", "Smooth booking and check-in process", "Assistance during your stay"]
       },
       {
         "id": "experience",
         "word": "Experience",
-        "pronunciation": "/experience/",
-        "subtitle": "Unrepeatable ephemeral memories.",
-        "description": "Curation designed to transcend standard travel. Privileged off-grid treks, nocturnal architectural gallery viewing, and custom organic botanical scent profiles.",
-        "details": ["Exclusive access to private reserves", "Curated local cultural expeditions", "Tailored seasonal sensory identity"]
+        "subtitle": "A stay that feels better than ordinary",
+        "description": "Zavari Haus is designed for guests who want more than just a place to sleep. We create a polished, comfortable, and memorable stay experience",
+        "details": ["Stylish interiors with premium finishing", "Convenient locations near key city spots", "Ideal for families, business guests, and short stays"]
       }
     ]
   },
   "galleryPreview": {
-    "eyebrow": "Curated Aesthetics",
-    "title": "The Living Architecture",
+    "eyebrow": "Curated Interiors",
+    "title": "Spaces Designed To Feel Like Home",
     "hoverLabel": "View Space",
     "images": [
       {
@@ -106,26 +102,27 @@
   },
   "faq": {
     "titleLineOne": "Frequently Asked",
-    "titleLineTwo": "Questions.",
-    "description": "Everything you need to know before you arrive."
+    "titleLineTwo": "Questions",
+    "description": "Everything you need to know before you stay"
   },
   "location": {
-    "eyebrow": "The Confluence",
+    "eyebrow": "Prime Location",
     "title": "Find Us",
-    "landmarksTitle": "PROXIMITY & ACCESSIBILITY",
+    "landmarksTitle": "NEARBY PLACES",
     "landmarks": [
       { "name": "Lahore Airport", "distance": "20 min" },
       { "name": "Bahria Grand Mosque", "distance": "2 min" },
-      { "name": "Packages Mall", "distance": "10 min" },
-      { "name": "Lahore Ring Road", "distance": "1 min" },
+      { "name": "Eiffel Tower", "distance": "1 min" },
+      { "name": "Packages Mall", "distance": "15 min" },
+      { "name": "Lahore Ring Road", "distance": "2 min" },
       { "name": "DHA Raya", "distance": "10 min" }
     ]
   },
   "bookingCta": {
-    "heading": "Ready To Experience Zavari?",
-    "subtext": "Book your stay today.",
+    "heading": "Ready To Stay With Zavari?",
+    "subtext": "Book your premium stay today",
     "backgroundImage": "https://images.unsplash.com/photo-1540518614846-7eded433c457?auto=format&fit=crop&q=80&w=1600",
     "eyebrow": "Reserve Your Space",
-    "buttonLabel": "Confirm Reservation"
+    "buttonLabel": "Book Your Stay"
   }
 }

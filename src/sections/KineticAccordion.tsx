@@ -50,26 +50,26 @@ export default function KineticAccordion() {
   };
 
   return (
-    <div className="relative w-full min-h-screen bg-[#FDFBF7] py-20 md:py-[104px] flex flex-col justify-center items-center z-10 select-none border-t border-[#E6DFD3]/40">
-      <div className="w-full max-w-[1040px] px-6 md:px-10 flex flex-col gap-8">
+    <div className="relative w-full min-h-screen bg-[#FDFBF7] py-16 md:py-[88px] flex flex-col justify-center items-center z-10 select-none border-t border-[#E6DFD3]/40">
+      <div className="w-full max-w-[940px] px-5 md:px-8 flex flex-col gap-6">
         
         {/* Section Aesthetic Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between border-b border-[#E6DFD3]/40 pb-7 gap-4">
+        <div className="flex flex-col md:flex-row md:items-end justify-between border-b border-[#E6DFD3]/40 pb-5 gap-4">
           <div>
             <span className="font-mono text-[10px] uppercase tracking-[0.25em] text-[#B8975A]">
               Distinctive Philosophy
             </span>
-            <h2 className="font-display text-[34px] md:text-[42px] text-[#1A1814] font-light leading-none mt-2">
+            <h2 className="font-display text-[32px] md:text-[40px] text-[#1A1814] font-light leading-none mt-2">
               {home.pillars.title}
             </h2>
           </div>
-          <p className="font-sans text-[12px] text-[#6B6560] max-w-[320px] leading-relaxed font-light">
+          <p className="font-sans text-[12px] text-[#6B6560] max-w-[280px] leading-relaxed font-light">
             {home.pillars.description}
           </p>
         </div>
 
         {/* Interactive Hover Accordion List */}
-        <div className="w-full flex flex-col">
+        <div className="w-full flex flex-col rounded-[2px] border border-[#E6DFD3]/55 bg-white/35 shadow-[0_20px_60px_rgba(26,24,20,0.04)] overflow-hidden">
           {featureWords.map((item: any, index: number) => {
             const isActive = activeIndex === index;
             const itemNumber = index + 1 < 10 ? `0${index + 1}` : index + 1;
@@ -77,19 +77,19 @@ export default function KineticAccordion() {
             return (
               <div
                 key={item.id}
-                className="border-b border-[#E6DFD3]/65 last:border-b-0 group transition-all duration-500 hover:bg-[#FAF9F6]/40 px-2 md:px-4"
+                className="border-b border-[#E6DFD3]/55 last:border-b-0 group transition-all duration-500 hover:bg-[#FAF9F6]/55 px-3 md:px-5"
                 onMouseEnter={() => activateItem(index)}
                 onMouseLeave={clearHoverIntent}
                 onClick={() => setActiveIndex(index)}
               >
                 {/* Accordion Row Header */}
-                <div className="flex flex-col md:flex-row md:items-center justify-between gap-3 py-5 md:py-7 cursor-pointer">
+                <div className="flex flex-col md:flex-row md:items-center justify-between gap-2 md:gap-3 py-4 md:py-5 cursor-pointer">
                   {/* Left block: Number // uppercase Title [pronunciation] */}
                   <div className="flex items-baseline gap-3 md:gap-5 flex-wrap">
                     <span className="font-mono text-[11px] md:text-[13px] text-[#B8975A] font-medium tracking-wider">
                       {itemNumber} //
                     </span>
-                    <h3 className="font-display text-[20px] md:text-[26px] uppercase tracking-[0.06em] text-[#1A1814] font-light transition-all duration-400 group-hover:text-[#B8975A]">
+                    <h3 className="font-display text-[19px] md:text-[24px] uppercase tracking-[0.05em] text-[#1A1814] font-light transition-all duration-400 group-hover:text-[#B8975A]">
                       {item.word}
                     </h3>
                     <span className="font-mono text-[10px] md:text-[11px] text-[#6B6560]/50 lowercase tracking-wider font-light">
@@ -98,7 +98,7 @@ export default function KineticAccordion() {
                   </div>
 
                   {/* Right block: Subtitle + Circle Icon Badge */}
-                  <div className="flex items-center gap-5 md:gap-8 justify-between md:justify-end w-full md:w-auto">
+                  <div className="flex items-center gap-4 md:gap-6 justify-between md:justify-end w-full md:w-auto">
                     <span className="font-display italic text-[12px] md:text-[14px] text-[#6B6560] font-light tracking-wide transition-opacity duration-300">
                       {item.subtitle}
                     </span>
@@ -118,16 +118,16 @@ export default function KineticAccordion() {
                 <div
                   className="w-full overflow-hidden transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)]"
                   style={{
-                    maxHeight: isActive ? '260px' : '0px',
+                    maxHeight: isActive ? '220px' : '0px',
                     opacity: isActive ? 1 : 0,
                     pointerEvents: isActive ? 'auto' : 'none',
                   }}
                 >
-                  <div className="border-t border-[#E6DFD3]/40 w-full pt-5 pb-7">
-                    <div className="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-8 pl-2 md:pl-6">
+                  <div className="border-t border-[#E6DFD3]/40 w-full pt-4 pb-5">
+                    <div className="grid grid-cols-1 md:grid-cols-12 gap-5 md:gap-6 pl-0 md:pl-4">
                       {/* Left: Beautiful high-end Description */}
                       <div className="md:col-span-7 flex flex-col justify-center">
-                        <p className="font-display font-light text-[15px] md:text-[17px] text-[#1A1814] leading-[1.55] tracking-wide">
+                        <p className="font-display font-light text-[14px] md:text-[16px] text-[#1A1814] leading-[1.5] tracking-wide">
                           {item.description}
                         </p>
                       </div>
@@ -139,14 +139,14 @@ export default function KineticAccordion() {
 
                       {/* Right: Specifications report list */}
                       <div className="md:col-span-4 flex flex-col justify-start">
-                        <h4 className="font-mono text-[10px] uppercase tracking-[0.25em] text-[#B8975A] font-bold mb-3">
+                        <h4 className="font-mono text-[10px] uppercase tracking-[0.25em] text-[#B8975A] font-bold mb-2.5">
                           Specification Report:
                         </h4>
-                        <ul className="flex flex-col gap-2.5">
+                        <ul className="flex flex-col gap-2">
                           {item.details.map((detail, dIdx) => (
                             <li
                               key={dIdx}
-                              className="font-sans text-[11px] md:text-[12px] text-[#6B6560] flex items-start gap-2.5 leading-relaxed"
+                              className="font-sans text-[11px] md:text-[12px] text-[#6B6560] flex items-start gap-2 leading-relaxed"
                             >
                               <span className="w-1.5 h-1.5 rounded-full bg-[#B8975A] shrink-0 mt-[6px]"></span>
                               <span className="font-light">{detail}</span>
