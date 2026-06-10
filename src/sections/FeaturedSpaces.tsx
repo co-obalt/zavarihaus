@@ -1,11 +1,11 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { splitPrice, useContent } from '../content/ContentContext';
 import { useModal } from '../hooks/useModal';
 import Tilt from '../components/Tilt';
-import { ArrowUpRight } from 'lucide-react';
+import { ArrowDown, ArrowUpRight } from 'lucide-react';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -15,6 +15,7 @@ export default function FeaturedSpaces() {
   const sectionRef = useRef<HTMLDivElement>(null);
   const scrollContainerRef = useRef<HTMLDivElement>(null);
   const { openModal } = useModal();
+  const [showMobileHint, setShowMobileHint] = useState(true);
 
   useEffect(() => {
     const scroller = scrollContainerRef.current;
@@ -62,6 +63,28 @@ export default function FeaturedSpaces() {
     }, sectionRef);
 
     return () => ctx.revert();
+  }, []);
+
+  useEffect(() => {
+    const section = sectionRef.current;
+    if (!section) return;
+
+    const hideHint = () => setShowMobileHint(false);
+
+    section.addEventListener('wheel', hideHint, { passive: true });
+    section.addEventListener('touchstart', hideHint, { passive: true });
+    section.addEventListener('pointerdown', hideHint);
+
+    const timer = window.setTimeout(() => {
+      setShowMobileHint(false);
+    }, 5000);
+
+    return () => {
+      section.removeEventListener('wheel', hideHint);
+      section.removeEventListener('touchstart', hideHint);
+      section.removeEventListener('pointerdown', hideHint);
+      window.clearTimeout(timer);
+    };
   }, []);
 
   return (
@@ -147,6 +170,17 @@ export default function FeaturedSpaces() {
           </div>
         ))}
       </div>
+
+      {showMobileHint && (
+        <div className="md:hidden pointer-events-none absolute bottom-4 left-1/2 z-20 -translate-x-1/2">
+          <div className="flex items-center gap-2 rounded-full border border-[#B8975A]/20 bg-[#FAF9F6]/90 px-3 py-2 shadow-[0_8px_24px_rgba(17,16,9,0.08)] backdrop-blur-md">
+            <ArrowDown size={14} className="text-[#B8975A] animate-bounce" />
+            <span className="font-sans text-[10px] uppercase tracking-[0.2em] text-[#6B6560]">
+              Scroll to explore
+            </span>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

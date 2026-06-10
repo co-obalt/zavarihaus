@@ -114,11 +114,11 @@
     "title": "Find Us",
     "landmarksTitle": "PROXIMITY & ACCESSIBILITY",
     "landmarks": [
-      { "name": "Lahore Airport", "distance": "28 km" },
-      { "name": "Bahria Grand Mosque", "distance": "1.2 km" },
-      { "name": "Packages Mall", "distance": "6.4 km" },
-      { "name": "Lahore Ring Road", "distance": "3.1 km" },
-      { "name": "DHA Phase 6", "distance": "8.7 km" }
+      { "name": "Lahore Airport", "distance": "20 min" },
+      { "name": "Bahria Grand Mosque", "distance": "2 min" },
+      { "name": "Packages Mall", "distance": "10 min" },
+      { "name": "Lahore Ring Road", "distance": "1 min" },
+      { "name": "DHA Raya", "distance": "10 min" }
     ]
   },
   "bookingCta": {
