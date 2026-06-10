@@ -351,8 +351,11 @@ export default function Hero({ isReady }: HeroProps) {
   }, [visibleVideoKey]);
 
   useEffect(() => {
-    const videos = Object.values(videoRefs.current) as Array<HTMLVideoElement | null>;
-    videos.forEach((video) => {
+    const forwardVideos = (Object.entries(videoRefs.current) as Array<[ActiveVideoKey, HTMLVideoElement | null]>)
+      .filter(([key]) => key.startsWith('forward'))
+      .map(([, video]) => video);
+
+    forwardVideos.forEach((video) => {
       video?.load();
     });
   }, []);
@@ -513,7 +516,7 @@ export default function Hero({ isReady }: HeroProps) {
             src={src}
             muted
             playsInline
-            preload="auto"
+            preload={key.startsWith('forward') ? 'auto' : 'metadata'}
             onEnded={() => {
               if (key !== activeVideoKey) return;
 
