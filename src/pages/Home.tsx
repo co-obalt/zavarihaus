@@ -11,7 +11,11 @@ import BookingCTA from '../sections/BookingCTA';
 import Footer from '../sections/Footer';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
-export default function Home() {
+interface HomeProps {
+  isReady: boolean;
+}
+
+export default function Home({ isReady }: HomeProps) {
   useEffect(() => {
     // Force refresh ScrollTriggers to adjust dimensions accurately
     window.addEventListener('load', () => {
@@ -22,7 +26,7 @@ export default function Home() {
 
   return (
     <div className="relative min-h-screen bg-[#FAF9F6]">
-      <Hero />
+      <Hero isReady={isReady} />
       <KineticStatement />
       <FeaturedSpaces />
       <KineticAccordion />

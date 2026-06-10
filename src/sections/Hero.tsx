@@ -98,7 +98,11 @@ const TypewriterText: React.FC<TypewriterProps> = ({ text, active, speed = 25, d
   );
 };
 
-export default function Hero() {
+interface HeroProps {
+  isReady: boolean;
+}
+
+export default function Hero({ isReady }: HeroProps) {
   const pinRef = useRef<HTMLDivElement>(null);
   const [activeSegment, setActiveSegment] = useState<number | null>(null);
   const [activeVideoIndex, setActiveVideoIndex] = useState(0);
@@ -110,6 +114,7 @@ export default function Hero() {
   const scrollDirectionRef = useRef<ScrollDirection>('forward');
   const activeClipRef = useRef<{ direction: ScrollDirection; index: number; targetPoint: HeroPoint } | null>(null);
   const fourthVideoExitLockUntilRef = useRef(0);
+  const hasStartedInitialPlaybackRef = useRef(false);
   const playbackTokenRef = useRef(0);
   const visibleVideoKeyRef = useRef<ActiveVideoKey>('forward-0');
   const videoRefs = useRef<Record<ActiveVideoKey, HTMLVideoElement | null>>({
@@ -252,6 +257,12 @@ export default function Hero() {
       }
     });
 
+    if (!isReady || !activeClipRef.current) {
+      resetVideo(activeVideo);
+      activeVideo.load();
+      return () => {};
+    }
+
     let timeoutId: ReturnType<typeof setTimeout> | undefined;
     let hasStarted = false;
     let hasPromoted = false;
@@ -329,7 +340,7 @@ export default function Hero() {
     }, 300);
 
     return cleanup;
-  }, [activeVideoKey, playbackRequest]);
+  }, [activeVideoKey, playbackRequest, isReady]);
 
   useEffect(() => {
     scrollDirectionRef.current = scrollDirection;
@@ -344,9 +355,14 @@ export default function Hero() {
     videos.forEach((video) => {
       video?.load();
     });
-
-    playClip(0, 'forward', 1);
   }, []);
+
+  useEffect(() => {
+    if (!isReady || hasStartedInitialPlaybackRef.current) return;
+
+    hasStartedInitialPlaybackRef.current = true;
+    playClip(0, 'forward', 1);
+  }, [isReady]);
 
   useEffect(() => {
     const heroRoot = pinRef.current;

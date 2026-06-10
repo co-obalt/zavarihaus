@@ -23,10 +23,6 @@ function AppContent() {
   // Initialize smooth scroll lenis
   useLenis();
 
-  if (loading) {
-    return <Preloader onComplete={() => setLoading(false)} />;
-  }
-
   return (
     <>
       <Seo />
@@ -36,7 +32,7 @@ function AppContent() {
       {/* Dynamic page routes wrapped with page clip transitions */}
       <TransitionWrapper>
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<Home isReady={!loading} />} />
           <Route path="/rooms" element={<Rooms />} />
           <Route path="/amenities" element={<Amenities />} />
           <Route path="/gallery" element={<Gallery />} />
@@ -47,6 +43,8 @@ function AppContent() {
 
       {/* Slide-out Overlay panel */}
       <BookingModal />
+
+      {loading && <Preloader onComplete={() => setLoading(false)} />}
     </>
   );
 }
