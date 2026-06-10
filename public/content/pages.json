@@ -1,0 +1,57 @@
+{
+  "rooms": {
+    "heroImage": "https://images.unsplash.com/photo-1540518614846-7eded433c457?auto=format&fit=crop&q=80&w=1600",
+    "title": "Our Spaces",
+    "subtitle": "Six distinct sanctuaries. One standard of excellence.",
+    "filters": [
+      { "id": "All", "label": "All Spaces" },
+      { "id": "Suite", "label": "Suites & Penthouses" },
+      { "id": "Villa", "label": "Villas & Retreats" }
+    ]
+  },
+  "amenities": {
+    "heroImage": "https://images.unsplash.com/photo-1540518614846-7eded433c457?auto=format&fit=crop&q=80&w=1600",
+    "title": "The Experience",
+    "subtitle": "Every detail considered. Every comfort engineered."
+  },
+  "gallery": {
+    "title": "Gallery",
+    "tabs": ["All", "Interior", "Exterior", "Pool & Spa", "Details"]
+  },
+  "booking": {
+    "title": "Reserve",
+    "successTitle": "Inquiry Logged Successfully",
+    "successMessageStart": "Thank you for choosing Zavari Haus. A personal representative is validating space entries for",
+    "successMessageMiddle": "and check dates of",
+    "successMessageEnd": ". Our confirmation dispatcher will send booking sheets details shortly via email in minutes.",
+    "successButton": "Book Another Sanctuary",
+    "formEyebrow": "Booking Inquiries Sheets",
+    "summaryEyebrow": "Sanctuary Estimate",
+    "totalNightsLabel": "Total Nights:",
+    "taxNote": "Tax and service charges included",
+    "submitLabel": "Confirm Reservation",
+    "trustTitle": "Why Zavari Haus?",
+    "trustPoints": [
+      { "icon": "Sparkles", "text": "Instant Confirmation Checkups" },
+      { "icon": "ShieldCheck", "text": "Free Cancellation (Up to 7 days prior)" },
+      { "icon": "Compass", "text": "24/7 Personal Concierge Assigned" },
+      { "icon": "Clock", "text": "100% Secure Cryptographic Reservation" }
+    ],
+    "pillarEyebrow": "Sovereign Hospitality Pillars",
+    "pillarTitle": "Unrivaled Architectural Peace",
+    "pillarDescription": "Zavari Haus properties operate on an uncompromised sensory baseline: pure HEPA active air flow, advanced sound shield technology (-45Db solitude index), and custom circadian room warming. Every aspect coordinates for perfect physical rest."
+  },
+  "contact": {
+    "heroImage": "https://images.unsplash.com/photo-1540518614846-7eded433c457?auto=format&fit=crop&q=80&w=1600",
+    "title": "Connect",
+    "subtitle": "Any time. Anywhere. We are here to assist.",
+    "successTitle": "Message Received",
+    "successMessageStart": "We have registered your inquiry details. Our concierge dispatcher will inspect your request and reply to you at",
+    "successMessageEnd": "shortly within indices.",
+    "successButton": "Send Another Message",
+    "formEyebrow": "Direct Inquiries",
+    "formTitle": "Write to Us",
+    "submitLabel": "Send Message",
+    "directLinesTitle": "Direct Lines"
+  }
+}

@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { getLenis } from '../hooks/useLenis';
+import { useContent } from '../content/ContentContext';
 import logo from '../../logo.png';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -23,25 +24,6 @@ const HERO_REVERSE_VIDEOS = [
 type ScrollDirection = 'forward' | 'reverse';
 type ActiveVideoKey = `${ScrollDirection}-${number}`;
 type HeroPoint = 0 | 1 | 2 | 3 | 4;
-
-const TEXT_SEGMENTS = [
-  {
-    headline: 'Where Silence Becomes Luxury.',
-    subline: 'Step inside. The noise of the world fades away.',
-  },
-  {
-    headline: 'Designed For Sacred Stillness.',
-    subline: 'Interiors crafted around deepest human calm.',
-  },
-  {
-    headline: 'Touch. Light. Sacred Space.',
-    subline: 'Private sanctuaries that belong only to you.',
-  },
-  {
-    headline: 'Welcome To Zavari Haus.',
-    subline: 'Defining the pinnacle of luxury stays in Pakistan.',
-  },
-];
 
 interface TypewriterProps {
   text: string;
@@ -103,6 +85,8 @@ interface HeroProps {
 }
 
 export default function Hero({ isReady }: HeroProps) {
+  const { home, site } = useContent();
+  const textSegments = home.hero.segments;
   const pinRef = useRef<HTMLDivElement>(null);
   const [activeSegment, setActiveSegment] = useState<number | null>(null);
   const [activeVideoIndex, setActiveVideoIndex] = useState(0);
@@ -551,7 +535,7 @@ export default function Hero({ isReady }: HeroProps) {
       <div className="absolute inset-0 z-10 flex items-center justify-center pointer-events-none overflow-hidden select-none">
         <img
           src={logo}
-          alt="Zavari Haus Watermark Logo"
+          alt={site.watermarkAlt}
           className="w-[85%] max-w-[550px] md:max-w-[700px] aspect-square object-contain opacity-[0.05] pointer-events-none select-none transition-transform duration-1000"
           referrerPolicy="no-referrer"
         />
@@ -559,7 +543,7 @@ export default function Hero({ isReady }: HeroProps) {
 
       <div className="absolute inset-0 z-20 flex flex-col items-start justify-center max-w-[1400px] mx-auto px-8 md:px-[120px]">
         <div className="relative w-full min-h-[160px] md:min-h-[260px]">
-          {TEXT_SEGMENTS.map((segment, idx) => (
+          {textSegments.map((segment: { headline: string; subline: string }, idx: number) => (
             <div
               key={idx}
               className="absolute inset-0 flex flex-col items-start justify-center pointer-events-none"

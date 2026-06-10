@@ -2,17 +2,14 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { useModal } from '../hooks/useModal';
 import { Instagram, MessageCircle, Facebook } from 'lucide-react';
+import { useContent } from '../content/ContentContext';
 import logo from '../../logo.png';
 
 export default function Footer() {
+  const { site } = useContent();
   const { openModal } = useModal();
 
-  const navLinks = [
-    { label: 'Spaces', path: '/rooms' },
-    { label: 'Amenities', path: '/amenities' },
-    { label: 'Gallery', path: '/gallery' },
-    { label: 'Contact', path: '/contact' }
-  ];
+  const navLinks = site.footerNav;
 
   return (
     <footer
@@ -25,7 +22,7 @@ export default function Footer() {
           
           {/* Col 1 Left: Brand signature */}
           <div className="flex flex-col gap-3">
-            <img src={logo} alt="Zavari Haus" className="h-11 w-auto object-contain" />
+            <img src={logo} alt={site.logoAlt} className="h-11 w-auto object-contain" />
           </div>
 
           {/* Col 2 Center: Nav links with liquid overlay sliders */}
@@ -45,7 +42,7 @@ export default function Footer() {
               onClick={() => openModal()}
               className="group relative font-sans text-[11px] uppercase tracking-[0.15em] text-white/55 hover:text-[#B8975A] transition-colors duration-250 py-1 cursor-pointer"
             >
-              <span>Booking</span>
+              <span>{site.footer.bookingLabel}</span>
               <span className="absolute bottom-0 left-0 w-full h-[1px] bg-[#B8975A] scale-x-0 group-hover:scale-x-100 transition-transform duration-350 origin-left" />
             </button>
           </div>
@@ -55,7 +52,7 @@ export default function Footer() {
             
             {/* Instagram */}
             <a
-              href="https://www.instagram.com/zavarihaus/"
+              href={site.contact.instagramUrl}
               target="_blank"
               referrerPolicy="no-referrer"
               rel="noreferrer"
@@ -67,7 +64,7 @@ export default function Footer() {
 
             {/* Whatsapp */}
             <a
-              href="https://wa.me/923058480987"
+              href={site.contact.whatsappUrl}
               target="_blank"
               referrerPolicy="no-referrer"
               rel="noreferrer"
@@ -79,7 +76,7 @@ export default function Footer() {
 
             {/* Facebook */}
             <a
-              href="https://www.facebook.com/ZavariHaus"
+              href={site.contact.facebookUrl}
               target="_blank"
               referrerPolicy="no-referrer"
               rel="noreferrer"
@@ -99,7 +96,7 @@ export default function Footer() {
         {/* Bottom row copyright claims */}
         <div className="flex justify-center items-center text-center">
           <span className="font-sans text-[11px] text-white/30 tracking-wide">
-            &copy; 2025 Zavari Haus. All rights reserved.
+            {site.footer.copyright}
           </span>
         </div>
 

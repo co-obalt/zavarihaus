@@ -7,47 +7,7 @@ import {
   ChevronDown, ArrowRight, ArrowLeft, MessageSquare, Check, Sparkles, ShieldCheck, Sun,
   Tv, Wifi, Lock, Bath, Sofa, Clock, MapPin, Share2
 } from 'lucide-react';
-import { ROOMS_DATA } from '../data/rooms';
-
-// Multi-image galleries for each sanctuary mapping
-const ROOM_GALLERIES: Record<string, string[]> = {
-  "Suite No. 1": [
-    "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&q=80&w=1200",
-    "https://images.unsplash.com/photo-1540518614846-7eded433c457?auto=format&fit=crop&q=80&w=1200",
-    "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&q=80&w=1200",
-    "https://images.unsplash.com/photo-1618773928121-c32242e63f39?auto=format&fit=crop&q=80&w=1200"
-  ],
-  "Suite No. 2": [
-    "https://images.unsplash.com/photo-1598928506311-c55ded91a20c?auto=format&fit=crop&q=80&w=1200",
-    "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&q=80&w=1200",
-    "https://images.unsplash.com/photo-1507652313519-d4e9174996dd?auto=format&fit=crop&q=80&w=1200",
-    "https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&q=80&w=1200"
-  ],
-  "Suite No. 3": [
-    "https://images.unsplash.com/photo-1582719508461-905c673771fd?auto=format&fit=crop&q=80&w=1200",
-    "https://images.unsplash.com/photo-1554995207-c18c203602cb?auto=format&fit=crop&q=80&w=1200",
-    "https://images.unsplash.com/photo-1591088398332-8a7791972843?auto=format&fit=crop&q=80&w=1200",
-    "https://images.unsplash.com/photo-1566665797739-1674de7a421a?auto=format&fit=crop&q=80&w=1200"
-  ],
-  "The Penthouse": [
-    "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&q=80&w=1200",
-    "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&q=80&w=1200",
-    "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&q=80&w=1200",
-    "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&q=80&w=1200"
-  ],
-  "Studio Retreat": [
-    "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?auto=format&fit=crop&q=80&w=1200",
-    "https://images.unsplash.com/photo-1502672023488-70e25813eb80?auto=format&fit=crop&q=80&w=1200",
-    "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?auto=format&fit=crop&q=80&w=1200",
-    "https://images.unsplash.com/photo-1502672545487-e80bc52763be?auto=format&fit=crop&q=80&w=1200"
-  ],
-  "Villa Retreat": [
-    "https://images.unsplash.com/photo-1613977257363-707ba9348227?auto=format&fit=crop&q=80&w=1200",
-    "https://images.unsplash.com/photo-1613490493576-7fde63acd811?auto=format&fit=crop&q=80&w=1200",
-    "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&q=80&w=1200",
-    "https://images.unsplash.com/photo-1613977257592-4871e5fbe76e?auto=format&fit=crop&q=80&w=1200"
-  ]
-};
+import { useContent } from '../content/ContentContext';
 
 // Royal exact tokens definition
 const AMENITIES_LIST = [
@@ -69,7 +29,8 @@ interface SimilarProps {
 }
 
 const SimilarRoomsLayout: React.FC<SimilarProps> = ({ currentRoomId, onRoomSelect }) => {
-  const filtered = ROOMS_DATA.filter(r => r.id !== currentRoomId).slice(0, 3);
+  const { rooms } = useContent();
+  const filtered = rooms.filter(r => r.id !== currentRoomId).slice(0, 3);
   
   return (
     <div className="mt-20 sm:mt-28 border-t border-[#B8975A]/20 pt-16 pb-12 select-text" id="similar-cohorts-section">
@@ -151,6 +112,7 @@ const SimilarRoomsLayout: React.FC<SimilarProps> = ({ currentRoomId, onRoomSelec
 
 export default function BookingModal() {
   const { isModalOpen, closeModal, selectedProperty, openModal } = useModal();
+  const { rooms, site } = useContent();
   const modalWrapperRef = useRef<HTMLDivElement>(null);
   const scrollContainerRef = useRef<HTMLDivElement>(null);
   const [viewMode, setViewMode] = useState<'details' | 'book'>('details');
@@ -170,16 +132,11 @@ export default function BookingModal() {
   const [submitRedirecting, setSubmitRedirecting] = useState(false);
 
   // Match room data safely
-  const currentRoom = ROOMS_DATA.find(r => r.name === selectedProperty) || 
-                      ROOMS_DATA.find(r => r.name.toLowerCase().includes(selectedProperty.toLowerCase())) || 
-                      ROOMS_DATA[0];
+  const currentRoom = rooms.find(r => r.name === selectedProperty) ||
+                      rooms.find(r => r.name.toLowerCase().includes(selectedProperty.toLowerCase())) ||
+                      rooms[0];
 
-  const galleryImages = ROOM_GALLERIES[currentRoom?.name] || [
-    currentRoom?.image,
-    "https://images.unsplash.com/photo-1540518614846-7eded433c457?auto=format&fit=crop&q=80&w=1200",
-    "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&q=80&w=1200",
-    "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&q=80&w=1200"
-  ];
+  const galleryImages = currentRoom?.images || [];
 
   // Sync selected room to form property
   useEffect(() => {
@@ -236,7 +193,7 @@ export default function BookingModal() {
   // Immediate Whatsapp "More Info" Action
   const handleInquireWhatsApp = () => {
     const textMessage = `Hello! I would love to request more info and coordinate stay options for ${currentRoom?.name || 'Zavari Haus Spaces'}.`;
-    const waUrl = `https://wa.me/923058480987?text=${encodeURIComponent(textMessage)}`;
+    const waUrl = `${site.contact.whatsappUrl}?text=${encodeURIComponent(textMessage)}`;
     window.open(waUrl, '_blank', 'noopener,noreferrer');
   };
 
@@ -261,7 +218,7 @@ export default function BookingModal() {
 ---------------------------------------
 Please verify availability and secure my reservation. Thank you!`;
 
-    const waUrl = `https://wa.me/923058480987?text=${encodeURIComponent(formattedMessage)}`;
+    const waUrl = `${site.contact.whatsappUrl}?text=${encodeURIComponent(formattedMessage)}`;
 
     setTimeout(() => {
       window.open(waUrl, '_blank', 'noopener,noreferrer');
@@ -385,7 +342,7 @@ Please verify availability and secure my reservation. Thank you!`;
 
                   <div className="flex items-center gap-2 text-gray-500 text-[14px] mt-3 font-sans">
                     <MapPin size={15} className="text-gray-400 shrink-0" />
-                    <span>2464 Royal Ln. Mesa, New Jersey 45463</span>
+                    <span>{currentRoom.modalLocation}</span>
                   </div>
 
                   <div className="mt-5 mb-5 select-none font-serif flex items-baseline">
@@ -774,7 +731,7 @@ Please verify availability and secure my reservation. Thank you!`;
                         onChange={(e) => setFormData({ ...formData, property: e.target.value })}
                         className="w-full border-b border-[#B8975A]/25 py-2 font-sans text-[14px] text-[#1A1814] outline-none focus:border-[#B8975A] transition-colors duration-150 bg-white cursor-pointer"
                       >
-                        {ROOMS_DATA.map((r) => (
+                        {rooms.map((r) => (
                           <option key={r.id} value={r.name}>{r.name} ({r.type})</option>
                         ))}
                       </select>

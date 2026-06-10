@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { useContent } from '../content/ContentContext';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -32,6 +33,8 @@ const GALLERY_IMAGES = [
 ];
 
 export default function GallerySection() {
+  const { home } = useContent();
+  const gallery = home.galleryPreview;
   const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -79,17 +82,17 @@ export default function GallerySection() {
         {/* Section Header */}
         <div className="text-center mb-12 select-none">
           <span className="font-sans text-[11px] tracking-[0.25em] text-[#B8975A] uppercase font-bold">
-            Curated Aesthetics
+            {gallery.eyebrow}
           </span>
           <h2 className="font-display text-[40px] md:text-[46px] text-[#1A1814] font-light mt-4">
-            The Living Architecture
+            {gallery.title}
           </h2>
           <div className="w-[64px] h-[1px] bg-[#B8975A] mt-5 mx-auto" />
         </div>
 
         {/* Asymmetric CSS Grid Container */}
         <div className="flex flex-col md:grid md:grid-cols-3 md:grid-rows-2 gap-4 max-w-fit select-none">
-          {GALLERY_IMAGES.map((img) => (
+          {gallery.images.map((img: any) => (
             <div
               key={img.id}
               className={`gallery-grid-item relative overflow-hidden bg-[#111009] cursor-pointer rounded-[2px] group ${img.className}`}
@@ -107,9 +110,9 @@ export default function GallerySection() {
 
               {/* Aesthetic Hover Tint Overlay */}
               <div className="absolute inset-0 bg-[#111009]/20 opacity-0 group-hover:opacity-100 transition-opacity duration-400 flex items-center justify-center">
-                <span className="font-sans text-[11px] tracking-widest text-[#FAF9F6] border border-[#FAF9F6]/30 px-4 py-2 uppercase bg-[#111009]/30 rounded-[2px] backdrop-blur-sm">
-                  View Space
-                </span>
+                  <span className="font-sans text-[11px] tracking-widest text-[#FAF9F6] border border-[#FAF9F6]/30 px-4 py-2 uppercase bg-[#111009]/30 rounded-[2px] backdrop-blur-sm">
+                  {gallery.hoverLabel}
+                  </span>
               </div>
             </div>
           ))}

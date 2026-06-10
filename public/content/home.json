@@ -1,0 +1,131 @@
+{
+  "hero": {
+    "segments": [
+      {
+        "headline": "Where Silence Becomes Luxury.",
+        "subline": "Step inside. The noise of the world fades away."
+      },
+      {
+        "headline": "Designed For Sacred Stillness.",
+        "subline": "Interiors crafted around deepest human calm."
+      },
+      {
+        "headline": "Touch. Light. Sacred Space.",
+        "subline": "Private sanctuaries that belong only to you."
+      },
+      {
+        "headline": "Welcome To Zavari Haus.",
+        "subline": "Defining the pinnacle of luxury stays in Pakistan."
+      }
+    ]
+  },
+  "statement": {
+    "sentence": "Testing Text; we curate experiences that linger long after you leave.",
+    "stats": [
+      { "value": 14, "suffix": "+", "label": "Properties" },
+      { "value": 4.9, "suffix": "★", "label": "Rating" },
+      { "value": 500, "suffix": "+", "label": "Guests" }
+    ]
+  },
+  "featuredSpaces": {
+    "titleLineOne": "Featured",
+    "titleLineTwo": "Spaces",
+    "description": "Impeccably detailed sanctuaries engineered for uninterrupted solitude.",
+    "linkLabel": "Explore All Spaces",
+    "linkPath": "/rooms"
+  },
+  "pillars": {
+    "eyebrow": "Distinctive Philosophy",
+    "title": "Our Core Pillars",
+    "description": "Every layer of Zavari Haus is meticulously engineered, balancing structural confidentiality with somatic luxury for an absolute sanctuary.",
+    "items": [
+      {
+        "id": "privacy",
+        "word": "Privacy",
+        "pronunciation": "/privacy/",
+        "subtitle": "Absolute spatial isolation.",
+        "description": "An uncompromising defensive barrier against external noise. Walls engineered for acoustic silence, personal gated domains, and secure, completely unmonitored shorelines.",
+        "details": ["Acoustic dampening rating of STC 65", "Encrypted satellite communications", "Private heliport & deep-water wharf accessibility"]
+      },
+      {
+        "id": "comfort",
+        "word": "Comfort",
+        "pronunciation": "/comfort/",
+        "subtitle": "Organic thermal and sensory symbiosis.",
+        "description": "Unconscious ease crafted from tactile intelligence. Low-velocity geothermal airflow, self-adjusting circadian luminosity, and custom-molded pure merino and raw silk linens.",
+        "details": ["Circadian biosympathetic circadian lighting", "Hypoallergenic climate isolation", "Floating mineral bath systems"]
+      },
+      {
+        "id": "service",
+        "word": "Service",
+        "pronunciation": "/service/",
+        "subtitle": "Intuitive preemptive care.",
+        "description": "A phantom support network that materializes only when anticipated. Every preference logged to a private localized profile, allowing services to manifest without a sound.",
+        "details": ["Dedicated butler trained in silent service", "Chauffeur fleet of electric custom-series sedans", "On-demand master culinary curation"]
+      },
+      {
+        "id": "experience",
+        "word": "Experience",
+        "pronunciation": "/experience/",
+        "subtitle": "Unrepeatable ephemeral memories.",
+        "description": "Curation designed to transcend standard travel. Privileged off-grid treks, nocturnal architectural gallery viewing, and custom organic botanical scent profiles.",
+        "details": ["Exclusive access to private reserves", "Curated local cultural expeditions", "Tailored seasonal sensory identity"]
+      }
+    ]
+  },
+  "galleryPreview": {
+    "eyebrow": "Curated Aesthetics",
+    "title": "The Living Architecture",
+    "hoverLabel": "View Space",
+    "images": [
+      {
+        "id": 1,
+        "url": "https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&q=80&w=600&h=840",
+        "alt": "Luxurious Dining Setting",
+        "className": "row-span-2 col-span-1 h-[448px] w-full md:w-[320px]"
+      },
+      {
+        "id": 2,
+        "url": "https://images.unsplash.com/photo-1618219908412-a29a1bb7b86e?auto=format&fit=crop&q=80&w=400&h=400",
+        "alt": "Textile Interior Close Up",
+        "className": "col-span-1 h-[224px] w-full md:w-[224px]"
+      },
+      {
+        "id": 3,
+        "url": "https://images.unsplash.com/photo-1600210491892-03d54c0aaf87?auto=format&fit=crop&q=80&w=400&h=400",
+        "alt": "Designer Lounge Setting",
+        "className": "col-span-1 h-[224px] w-full md:w-[224px]"
+      },
+      {
+        "id": 4,
+        "url": "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&q=80&w=800&h=400",
+        "alt": "Panoramic Outdoor Balcony",
+        "className": "col-span-2 h-[224px] w-full md:w-[460px]"
+      }
+    ]
+  },
+  "faq": {
+    "titleLineOne": "Frequently Asked",
+    "titleLineTwo": "Questions.",
+    "description": "Everything you need to know before you arrive."
+  },
+  "location": {
+    "eyebrow": "The Confluence",
+    "title": "Find Us",
+    "landmarksTitle": "PROXIMITY & ACCESSIBILITY",
+    "landmarks": [
+      { "name": "Lahore Airport", "distance": "28 km" },
+      { "name": "Bahria Grand Mosque", "distance": "1.2 km" },
+      { "name": "Packages Mall", "distance": "6.4 km" },
+      { "name": "Lahore Ring Road", "distance": "3.1 km" },
+      { "name": "DHA Phase 6", "distance": "8.7 km" }
+    ]
+  },
+  "bookingCta": {
+    "heading": "Ready To Experience Zavari?",
+    "subtext": "Book your stay today.",
+    "backgroundImage": "https://images.unsplash.com/photo-1540518614846-7eded433c457?auto=format&fit=crop&q=80&w=1600",
+    "eyebrow": "Reserve Your Space",
+    "buttonLabel": "Confirm Reservation"
+  }
+}

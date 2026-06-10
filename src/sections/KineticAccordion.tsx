@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { FEATURE_WORDS } from '../data/featureWords';
 import { Shield, Heart, Sparkles, Compass } from 'lucide-react';
+import { useContent } from '../content/ContentContext';
 
 // Helper to get custom vector luxury icons corresponding to each feature
 const getFeatureIcon = (id: string, className?: string) => {
@@ -19,6 +19,8 @@ const getFeatureIcon = (id: string, className?: string) => {
 };
 
 export default function KineticAccordion() {
+  const { home } = useContent();
+  const featureWords = home.pillars.items;
   const [activeIndex, setActiveIndex] = useState(0);
   const hoverTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
@@ -58,17 +60,17 @@ export default function KineticAccordion() {
               Distinctive Philosophy
             </span>
             <h2 className="font-display text-[34px] md:text-[42px] text-[#1A1814] font-light leading-none mt-2">
-              Our Core Pillars
+              {home.pillars.title}
             </h2>
           </div>
           <p className="font-sans text-[12px] text-[#6B6560] max-w-[320px] leading-relaxed font-light">
-            Every layer of Zavari Haus is meticulously engineered, balancing structural confidentiality with somatic luxury for an absolute sanctuary.
+            {home.pillars.description}
           </p>
         </div>
 
         {/* Interactive Hover Accordion List */}
         <div className="w-full flex flex-col">
-          {FEATURE_WORDS.map((item, index) => {
+          {featureWords.map((item: any, index: number) => {
             const isActive = activeIndex === index;
             const itemNumber = index + 1 < 10 ? `0${index + 1}` : index + 1;
 

@@ -4,9 +4,11 @@ import { useModal } from '../hooks/useModal';
 import { Menu, X } from 'lucide-react';
 import { gsap } from 'gsap';
 import { motion } from 'motion/react';
+import { useContent } from '../content/ContentContext';
 import logo from '../../logo.png';
 
 export default function Navbar() {
+  const { site } = useContent();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -92,12 +94,7 @@ export default function Navbar() {
     }
   }, [isMobileMenuOpen]);
 
-  const navLinks = [
-    { label: 'Spaces', path: '/rooms', index: 1 },
-    { label: 'Experience', path: '/amenities', index: 2 },
-    { label: 'Gallery', path: '/gallery', index: 3 },
-    { label: 'Location', path: '/contact', index: 4 }
-  ];
+  const navLinks = site.nav;
 
   const activeIdx = navLinks.findIndex(link => link.path === location.pathname);
 
@@ -174,7 +171,7 @@ export default function Navbar() {
       >
         {/* Left: Branding */}
         <Link to="/" className="flex items-center gap-3 group">
-          <img src={logo} alt="Zavari Haus" className="h-15 w-auto object-contain" />
+          <img src={logo} alt={site.logoAlt} className="h-15 w-auto object-contain" />
         </Link>
 
         {/* Center: Desktop Links + Elite Uiverse Responsive Sliding Corner Boundaries */}

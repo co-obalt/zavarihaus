@@ -1,0 +1,32 @@
+[
+  {
+    "id": "faq-1",
+    "question": "What is the minimum stay duration?",
+    "answer": "Our properties require a minimum of two nights. Extended stays of 7+ nights receive preferential rates and additional concierge services."
+  },
+  {
+    "id": "faq-2",
+    "question": "Is airport transfer included?",
+    "answer": "Complimentary airport transfers are included for all bookings of 3 nights or more. Private car service with professional chauffeur."
+  },
+  {
+    "id": "faq-3",
+    "question": "Can I host private events at Zavari Haus?",
+    "answer": "Select properties accommodate intimate private gatherings of up to 20 guests. Prior arrangement required. Contact our concierge team directly."
+  },
+  {
+    "id": "faq-4",
+    "question": "What is your cancellation policy?",
+    "answer": "Full refund for cancellations made 7 days prior to check-in. 50% refund within 3-7 days. No refund within 72 hours of arrival."
+  },
+  {
+    "id": "faq-5",
+    "question": "Are pets allowed?",
+    "answer": "We welcome well-behaved pets in designated pet-friendly suites. A refundable pet deposit is required upon booking."
+  },
+  {
+    "id": "faq-6",
+    "question": "Is there 24/7 support available?",
+    "answer": "Our concierge team operates around the clock. You will be assigned a personal contact number upon confirmation of your reservation."
+  }
+]

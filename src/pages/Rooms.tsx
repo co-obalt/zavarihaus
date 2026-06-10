@@ -1,17 +1,18 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { ROOMS_DATA, Room } from '../data/rooms';
 import { useModal } from '../hooks/useModal';
 import Tilt from '../components/Tilt';
 import Footer from '../sections/Footer';
 import { Users, LayoutGrid, BedDouble, ArrowRight } from 'lucide-react';
+import { splitPrice, useContent, Room } from '../content/ContentContext';
 
 gsap.registerPlugin(ScrollTrigger);
 
 export default function Rooms() {
+  const { rooms, pages } = useContent();
   const [activeFilter, setActiveFilter] = useState<'All' | 'Suite' | 'Villa'>('All');
-  const [visibleRooms, setVisibleRooms] = useState<Room[]>(ROOMS_DATA);
+  const [visibleRooms, setVisibleRooms] = useState<Room[]>(rooms);
   const heroRef = useRef<HTMLDivElement>(null);
   const headingRef = useRef<HTMLHeadingElement>(null);
   const gridRef = useRef<HTMLDivElement>(null);
@@ -33,6 +34,10 @@ export default function Rooms() {
       );
     }
   }, []);
+
+  useEffect(() => {
+    setVisibleRooms(rooms);
+  }, [rooms]);
 
   // Filtering cards logic with GSAP transition
   const handleFilterChange = (filter: 'All' | 'Suite' | 'Villa') => {
@@ -62,13 +67,13 @@ export default function Rooms() {
   const applyFilter = (filter: 'All' | 'Suite' | 'Villa') => {
     let filtered: Room[];
     if (filter === 'All') {
-      filtered = ROOMS_DATA;
+      filtered = rooms;
     } else if (filter === 'Suite') {
       // Includes both standard suites and the crowning Penthouses
-      filtered = ROOMS_DATA.filter(r => r.type === 'Suite' || r.type === 'Penthouse');
+      filtered = rooms.filter(r => r.type === 'Suite' || r.type === 'Penthouse');
     } else {
       // Includes Villas and Studio retreats
-      filtered = ROOMS_DATA.filter(r => r.type === 'Villa' || r.type === 'Studio');
+      filtered = rooms.filter(r => r.type === 'Villa' || r.type === 'Studio');
     }
     setVisibleRooms(filtered);
 
@@ -109,7 +114,7 @@ export default function Rooms() {
     }, grid);
 
     return () => ctx.revert();
-  }, []);
+  }, [rooms]);
 
   return (
     <div className="relative min-h-screen bg-[#FAF9F6]">
@@ -118,8 +123,8 @@ export default function Rooms() {
       <div
         ref={heroRef}
         className="relative w-full h-[60vh] bg-cover bg-center flex items-center justify-center select-none"
-        style={{
-          backgroundImage: `url('https://images.unsplash.com/photo-1540518614846-7eded433c457?auto=format&fit=crop&q=80&w=1600')` // REPLACE: luxury room
+          style={{
+          backgroundImage: `url('${pages.rooms.heroImage}')`
         }}
       >
         <div className="absolute inset-0 bg-[#111009]/60" />
@@ -129,14 +134,14 @@ export default function Rooms() {
             ref={headingRef}
             className="font-display text-[48px] md:text-[80px] text-white font-light flex justify-center gap-3 overflow-hidden leading-tight pb-3"
           >
-            {"Our Spaces".split(" ").map((word, idx) => (
+            {pages.rooms.title.split(" ").map((word, idx) => (
               <span key={idx} className="overflow-hidden inline-block pr-1 leading-none">
                 <span className="clip-word inline-block origin-bottom">{word}</span>
               </span>
             ))}
           </h1>
           <p className="font-sans text-[13px] md:text-[15px] text-white/70 tracking-wide mt-4 uppercase">
-            Six distinct sanctuaries. One standard of excellence.
+            {pages.rooms.subtitle}
           </p>
         </div>
       </div>
@@ -146,16 +151,15 @@ export default function Rooms() {
         
         {/* Filter bar selector tabs */}
         <div className="flex justify-center items-center gap-8 md:gap-12 mb-16 border-b border-[#B8975A]/15 pb-4 select-none">
-          {(['All', 'Suite', 'Villa'] as const).map((tab) => {
-            const isActive = activeFilter === tab;
-            const labelMap = { All: 'All Spaces', Suite: 'Suites & Penthouses', Villa: 'Villas & Retreats' };
+          {pages.rooms.filters.map((tab: any) => {
+            const isActive = activeFilter === tab.id;
             return (
               <button
-                key={tab}
-                onClick={() => handleFilterChange(tab)}
+                key={tab.id}
+                onClick={() => handleFilterChange(tab.id as 'All' | 'Suite' | 'Villa')}
                 className="font-sans text-[11px] uppercase tracking-[0.2em] relative py-2 text-[#6B6560] hover:text-[#B8975A] transition-colors duration-250 cursor-pointer"
               >
-                <span>{labelMap[tab]}</span>
+                <span>{tab.label}</span>
                 {/* Gold indicator rule active */}
                 {isActive && (
                   <span className="absolute bottom-[-17px] left-0 w-full h-[2px] bg-[#B8975A] z-10 animate-fade-in" />
@@ -227,7 +231,7 @@ export default function Rooms() {
                     <div className="flex flex-col gap-0.5">
                       <span className="text-[10px] font-sans tracking-wide text-[#6B6560]/60 uppercase">From</span>
                       <span className="font-display text-[22px] text-[#B8975A] font-medium leading-none">
-                        {room.price.split(' ')[0]} {room.price.split(' ')[1]}
+                      {splitPrice(room.price)}
                       </span>
                     </div>
                     

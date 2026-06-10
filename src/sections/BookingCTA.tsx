@@ -2,10 +2,13 @@ import React, { useEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useModal } from '../hooks/useModal';
+import { useContent } from '../content/ContentContext';
 
 gsap.registerPlugin(ScrollTrigger);
 
 export default function BookingCTA() {
+  const { home } = useContent();
+  const cta = home.bookingCta;
   const sectionRef = useRef<HTMLDivElement>(null);
   const bgRef = useRef<HTMLDivElement>(null);
   const headingRef = useRef<HTMLHeadingElement>(null);
@@ -19,7 +22,7 @@ export default function BookingCTA() {
   const [dateOut, setDateOut] = useState('');
   const [guests, setGuests] = useState('2');
 
-  const headingText = "Ready To Experience Zavari?";
+  const headingText = cta.heading;
   const words = headingText.split(" ");
 
   useEffect(() => {
@@ -156,7 +159,7 @@ export default function BookingCTA() {
         ref={bgRef}
         className="absolute inset-[0_-10%] h-[130%] bg-cover bg-center select-none"
         style={{
-          backgroundImage: `url('https://images.unsplash.com/photo-1540518614846-7eded433c457?auto=format&fit=crop&q=80&w=1600')`, // REPLACE: hotel room layout
+          backgroundImage: `url('${cta.backgroundImage}')`,
         }}
       />
       
@@ -184,7 +187,7 @@ export default function BookingCTA() {
             ref={subtextRef}
             className="font-sans text-[16px] md:text-[18px] text-white/65 font-light"
           >
-            Book your stay today.
+            {cta.subtext}
           </p>
         </div>
 
@@ -194,7 +197,7 @@ export default function BookingCTA() {
           className="booking-card-glass w-full max-w-[720px] p-6 md:p-10 mb-10 flex flex-col relative z-20"
         >
           <span className="font-sans text-[9px] md:text-[10px] tracking-[0.3em] uppercase text-[#B8975A] font-medium mb-6">
-            Reserve Your Space
+            {cta.eyebrow}
           </span>
 
           <form onSubmit={handleBookingSubmit} className="flex flex-col gap-8 w-full">
@@ -258,7 +261,7 @@ export default function BookingCTA() {
             >
               {/* Shimmer overlay sweep */}
               <span className="absolute inset-0 w-1/2 h-full bg-white/20 -translate-x-[150%] group-hover:translate-x-[250%] transition-transform duration-[800ms] -skew-x-[30deg] ease-out pointer-events-none" />
-              <span className="relative z-10">Confirm Reservation</span>
+              <span className="relative z-10">{cta.buttonLabel}</span>
             </button>
 
           </form>

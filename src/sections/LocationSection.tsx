@@ -2,18 +2,13 @@ import React, { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { MapPin } from 'lucide-react';
+import { useContent } from '../content/ContentContext';
 
 gsap.registerPlugin(ScrollTrigger);
 
-const LANDMARKS = [
-  { name: "Lahore Airport", distance: "28 km" },
-  { name: "Bahria Grand Mosque", distance: "1.2 km" },
-  { name: "Packages Mall", distance: "6.4 km" },
-  { name: "Lahore Ring Road", distance: "3.1 km" },
-  { name: "DHA Phase 6", distance: "8.7 km" }
-];
-
 export default function LocationSection() {
+  const { home, site } = useContent();
+  const location = home.location;
   const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -53,7 +48,7 @@ export default function LocationSection() {
         {/* Left Side: Map Iframe wrapper */}
         <div className="relative group overflow-hidden shadow-xl rounded-[2px] border border-[#B8975A]/15 h-[480px]">
           <iframe
-            src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3406.9580661264367!2d74.18364607560517!3d31.360136374287663!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMzHCsDIxJzM2LjUiTiA3NMKwMTEnMTAuNCJF!5e0!3m2!1sen!2s!4v1780941194729!5m2!1sen!2s"
+            src={site.contact.mapEmbedUrl}
             width="100%"
             height="100%"
             style={{ border: 0 }}
@@ -70,30 +65,30 @@ export default function LocationSection() {
         {/* Right Side: Location details and landmark ratings */}
         <div className="flex flex-col justify-center select-text">
           <span className="font-sans text-[11px] tracking-[0.25em] text-[#B8975A] font-bold uppercase">
-            The Confluence
+            {location.eyebrow}
           </span>
           <h2 className="font-display text-[48px] md:text-[56px] text-[#1A1814] font-light leading-tight mt-3 mb-6">
-            Find Us
+            {location.title}
           </h2>
           
           <div className="flex gap-3 items-start mb-10 pb-6 border-b border-[#B8975A]/15">
             <MapPin className="text-[#B8975A] shrink-0 mt-1" size={18} />
             <div>
               <p className="font-sans text-[15px] font-medium text-[#1A1814]">
-                Zavari Haus Address
+                {site.contact.addressName}
               </p>
               <p className="font-sans text-[14px] text-[#6B6560] leading-relaxed mt-1">
-                Bahria Town, Lahore, Punjab, Pakistan
+                {site.contact.address}
               </p>
             </div>
           </div>
 
           <div className="flex flex-col gap-5 select-none">
             <h4 className="font-sans text-[11px] uppercase tracking-[0.2em] text-[#1A1814]/50 font-bold mb-1">
-              PROXIMITY & ACCESSIBILITY
+              {location.landmarksTitle}
             </h4>
             
-            {LANDMARKS.map((landmark, idx) => (
+            {location.landmarks.map((landmark: any, idx: number) => (
               <div
                 key={idx}
                 className="landmark-row flex justify-between items-center py-2.5 border-b border-[#B8975A]/10 last:border-0 hover:bg-[#B8975A]/5 px-2 rounded-sm transition-colors duration-200"

@@ -1,11 +1,12 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { FAQ_DATA } from '../data/faq';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { useContent } from '../content/ContentContext';
 
 gsap.registerPlugin(ScrollTrigger);
 
 export default function FAQ() {
+  const { faq, home } = useContent();
   const [openIndex, setOpenIndex] = useState<number | null>(null);
   const containerRef = useRef<HTMLDivElement>(null);
 
@@ -50,22 +51,22 @@ export default function FAQ() {
         {/* Left Side: Header details */}
         <div className="flex flex-col select-text">
           <h2 className="font-display text-[48px] md:text-[64px] text-[#1A1814] font-light leading-[1.1] mb-4">
-            Frequently Asked
+            {home.faq.titleLineOne}
             <br />
-            <span className="italic font-normal text-[#B8975A]">Questions.</span>
+            <span className="italic font-normal text-[#B8975A]">{home.faq.titleLineTwo}</span>
           </h2>
           <p className="font-sans text-[14px] text-[#6B6560] leading-relaxed max-w-[280px] mt-2">
-            Everything you need to know before you arrive.
+            {home.faq.description}
           </p>
         </div>
 
         {/* Right Side: Expanding accordion entries */}
         <div className="flex flex-col gap-0 border-t border-[#B8975A]/20">
-          {FAQ_DATA.map((faq, index) => {
+          {faq.map((item, index) => {
             const isOpen = openIndex === index;
             return (
               <div
-                key={faq.id}
+                key={item.id}
                 className="faq-item border-b border-[#B8975A]/20 flex flex-col relative py-6 cursor-pointer group"
                 onClick={() => toggleItem(index)}
               >
@@ -85,7 +86,7 @@ export default function FAQ() {
                       color: isOpen ? 'var(--gold)' : 'var(--text)'
                     }}
                   >
-                    {faq.question}
+                    {item.question}
                   </h3>
                   
                   {/* Rotating Gold Accent toggler indicator plus inside */}
@@ -110,7 +111,7 @@ export default function FAQ() {
                   }}
                 >
                   <div className="font-sans text-[14px] text-[#6B6560] leading-relaxed pt-4 pb-2 pr-[40px]">
-                    {faq.answer}
+                    {item.answer}
                   </div>
                 </div>
               </div>

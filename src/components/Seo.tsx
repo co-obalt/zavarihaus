@@ -1,43 +1,6 @@
 import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
-
-const SITE_NAME = 'Zavari Haus';
-const DEFAULT_BASE_URL = 'https://zavarihaus.com';
-const SITE_URL = (import.meta.env.VITE_SITE_URL || DEFAULT_BASE_URL).replace(/\/$/, '');
-const DEFAULT_IMAGE = `${SITE_URL}/logo.png`;
-
-const ROUTE_META: Record<string, { title: string; description: string; keywords: string }> = {
-  '/': {
-    title: 'Zavari Haus | Luxury Short-Stay Apartments in Pakistan',
-    description: 'Zavari Haus is a premium short-stay luxury apartment brand in Pakistan with cinematic stays, elegant rooms, and direct booking support.',
-    keywords: 'luxury apartments Pakistan, short stay Lahore, premium stay, Zavari Haus',
-  },
-  '/rooms': {
-    title: 'Rooms & Suites | Zavari Haus',
-    description: 'Explore luxury suites, penthouse, studio retreat, and villa options at Zavari Haus in Pakistan.',
-    keywords: 'luxury rooms, suites, penthouse, villa, Zavari Haus rooms',
-  },
-  '/amenities': {
-    title: 'Amenities & Experience | Zavari Haus',
-    description: 'Discover the spa, dining, fitness, concierge, and wellness experience at Zavari Haus.',
-    keywords: 'Zavari Haus amenities, luxury hospitality, concierge, wellness',
-  },
-  '/gallery': {
-    title: 'Gallery | Zavari Haus',
-    description: 'View cinematic interiors, exteriors, pool spaces, and detail shots from Zavari Haus.',
-    keywords: 'Zavari Haus gallery, luxury interiors, apartment gallery',
-  },
-  '/booking': {
-    title: 'Book a Stay | Zavari Haus',
-    description: 'Reserve a luxury short-stay at Zavari Haus with direct booking support and WhatsApp coordination.',
-    keywords: 'book Zavari Haus, luxury stay booking, short stay Lahore',
-  },
-  '/contact': {
-    title: 'Contact Zavari Haus',
-    description: 'Contact Zavari Haus by email, phone, WhatsApp, Instagram, or Facebook for stay inquiries and reservations.',
-    keywords: 'Zavari Haus contact, luxury stay contact, Lahore apartment contact',
-  },
-};
+import { useContent } from '../content/ContentContext';
 
 function setOrCreateMeta(name: string, value: string, isProperty = false) {
   const selector = isProperty ? `meta[property="${name}"]` : `meta[name="${name}"]`;
@@ -65,37 +28,36 @@ function setCanonical(url: string) {
 }
 
 export default function Seo() {
+  const { site } = useContent();
   const { pathname } = useLocation();
 
   useEffect(() => {
-    const meta = ROUTE_META[pathname] || ROUTE_META['/'];
-    const canonicalUrl = `${SITE_URL}${pathname === '/' ? '' : pathname}`;
-    const title = meta.title;
-    const description = meta.description;
+    const meta = site.seo.routes[pathname] || site.seo.routes['/'];
+    const canonicalUrl = `${site.baseUrl}${pathname === '/' ? '' : pathname}`;
 
-    document.title = title;
+    document.title = meta.title;
     document.documentElement.lang = 'en';
 
-    setOrCreateMeta('description', description);
-    setOrCreateMeta('author', SITE_NAME);
+    setOrCreateMeta('description', meta.description);
+    setOrCreateMeta('author', site.name);
     setOrCreateMeta('robots', 'index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1');
     setOrCreateMeta('theme-color', '#111009');
-    setOrCreateMeta('application-name', SITE_NAME);
+    setOrCreateMeta('application-name', site.name);
     setOrCreateMeta('keywords', meta.keywords);
 
-    setOrCreateMeta('og:site_name', SITE_NAME, true);
+    setOrCreateMeta('og:site_name', site.name, true);
     setOrCreateMeta('og:locale', 'en_US', true);
     setOrCreateMeta('og:type', 'website', true);
-    setOrCreateMeta('og:title', title, true);
-    setOrCreateMeta('og:description', description, true);
+    setOrCreateMeta('og:title', meta.title, true);
+    setOrCreateMeta('og:description', meta.description, true);
     setOrCreateMeta('og:url', canonicalUrl, true);
-    setOrCreateMeta('og:image', DEFAULT_IMAGE, true);
-    setOrCreateMeta('og:image:alt', `${SITE_NAME} logo`, true);
+    setOrCreateMeta('og:image', `${site.baseUrl}/logo.png`, true);
+    setOrCreateMeta('og:image:alt', `${site.name} logo`, true);
 
     setOrCreateMeta('twitter:card', 'summary_large_image');
-    setOrCreateMeta('twitter:title', title);
-    setOrCreateMeta('twitter:description', description);
-    setOrCreateMeta('twitter:image', DEFAULT_IMAGE);
+    setOrCreateMeta('twitter:title', meta.title);
+    setOrCreateMeta('twitter:description', meta.description);
+    setOrCreateMeta('twitter:image', `${site.baseUrl}/logo.png`);
 
     setCanonical(canonicalUrl);
 
@@ -103,29 +65,26 @@ export default function Seo() {
       {
         '@context': 'https://schema.org',
         '@type': 'LodgingBusiness',
-        name: SITE_NAME,
+        name: site.name,
         url: canonicalUrl,
-        logo: DEFAULT_IMAGE,
-        image: DEFAULT_IMAGE,
-        telephone: '+923058480987',
-        email: 'stay@zavarihaus.com',
-        priceRange: 'PKR 10,500 - PKR 75,000',
+        logo: `${site.baseUrl}/logo.png`,
+        image: `${site.baseUrl}/logo.png`,
+        telephone: site.contact.phone,
+        email: site.contact.email,
+        priceRange: site.seo.priceRange,
         address: {
           '@type': 'PostalAddress',
-          streetAddress: 'Bahria Town',
-          addressLocality: 'Lahore',
-          addressRegion: 'Punjab',
-          addressCountry: 'PK',
+          streetAddress: site.contact.streetAddress,
+          addressLocality: site.contact.addressLocality,
+          addressRegion: site.contact.addressRegion,
+          addressCountry: site.contact.addressCountry,
         },
-        sameAs: [
-          'https://www.instagram.com/zavarihaus/',
-          'https://www.facebook.com/ZavariHaus',
-        ],
+        sameAs: [site.contact.instagramUrl, site.contact.facebookUrl],
       },
       {
         '@context': 'https://schema.org',
         '@type': 'WebSite',
-        name: SITE_NAME,
+        name: site.name,
         url: canonicalUrl,
       },
     ];
@@ -138,7 +97,7 @@ export default function Seo() {
       document.head.appendChild(script);
     }
     script.textContent = JSON.stringify(schema);
-  }, [pathname]);
+  }, [pathname, site]);
 
   return null;
 }

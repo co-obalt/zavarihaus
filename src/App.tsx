@@ -7,6 +7,7 @@ import ScrollToTop from './components/ScrollToTop';
 import TransitionWrapper from './components/TransitionWrapper';
 import Seo from './components/Seo';
 import { ModalProvider } from './context/ModalContext';
+import { ContentProvider } from './content/ContentContext';
 import { useLenis } from './hooks/useLenis';
 
 // Pages import
@@ -51,10 +52,12 @@ function AppContent() {
 
 export default function App() {
   return (
-    <ModalProvider>
-      <BrowserRouter>
-        <AppContent />
-      </BrowserRouter>
-    </ModalProvider>
+    <ContentProvider>
+      <ModalProvider>
+        <BrowserRouter>
+          <AppContent />
+        </BrowserRouter>
+      </ModalProvider>
+    </ContentProvider>
   );
 }

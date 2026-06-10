@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { ROOMS_DATA } from '../data/rooms';
+import { splitPrice, useContent } from '../content/ContentContext';
 import { useModal } from '../hooks/useModal';
 import Tilt from '../components/Tilt';
 import { ArrowUpRight } from 'lucide-react';
@@ -10,6 +10,8 @@ import { ArrowUpRight } from 'lucide-react';
 gsap.registerPlugin(ScrollTrigger);
 
 export default function FeaturedSpaces() {
+  const { home, rooms } = useContent();
+  const sectionCopy = home.featuredSpaces;
   const sectionRef = useRef<HTMLDivElement>(null);
   const scrollContainerRef = useRef<HTMLDivElement>(null);
   const { openModal } = useModal();
@@ -75,24 +77,24 @@ export default function FeaturedSpaces() {
         {/* Left scrollable information panel */}
         <div className="w-[240px] shrink-0 flex flex-col justify-center h-full py-8 pr-5">
           <h2 className="font-display text-[40px] md:text-[46px] text-[#1A1814] leading-[1.05] font-light">
-            Featured
+            {sectionCopy.titleLineOne}
             <br />
-            <span className="italic font-normal text-[#B8975A]">Spaces</span>
+            <span className="italic font-normal text-[#B8975A]">{sectionCopy.titleLineTwo}</span>
           </h2>
           <p className="font-sans text-[12px] text-[#6B6560] tracking-wide mt-5 leading-relaxed max-w-[220px]">
-            Impeccably detailed sanctuaries engineered for uninterrupted solitude.
+            {sectionCopy.description}
           </p>
           <div className="mt-7">
             <Link
-              to="/rooms"
+              to={sectionCopy.linkPath}
               className="inline-flex items-center gap-2 font-sans text-[11px] uppercase tracking-[0.2em] text-[#B8975A] font-medium hover:text-[#D4B07A] transition-colors duration-250 hover:underline underline-offset-4"
             >
-              Explore All Spaces
+              {sectionCopy.linkLabel}
             </Link>
           </div>
         </div>
 
-        {ROOMS_DATA.map((room) => (
+        {rooms.map((room) => (
           <div
             key={room.id}
             className="featured-card w-[300px] h-[420px] shrink-0 flex flex-col shadow-lg hover:shadow-xl transition-all duration-400 group relative z-10 cursor-pointer"
@@ -121,7 +123,7 @@ export default function FeaturedSpaces() {
                     {room.name}
                   </h3>
                   <p className="font-sans text-[11px] text-[#6B6560] tracking-wide mt-2">
-                    {room.id.includes('suite') ? 'Bahria Town, Lahore' : room.id.includes('penthouse') ? 'Gulberg, Lahore' : 'DHA, Lahore'}
+                    {room.location}
                   </p>
                 </div>
 
@@ -131,7 +133,7 @@ export default function FeaturedSpaces() {
                       Rate
                     </span>
                     <span className="font-display text-[17px] text-[#B8975A] font-medium leading-none">
-                      {room.price.split(' ')[0]} {room.price.split(' ')[1]}
+                      {splitPrice(room.price)}
                     </span>
                   </div>
 
