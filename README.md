@@ -1,21 +1,20 @@
+<div align="center">
+<img width="1200" height="475" alt="GHBanner" src="https://ai.google.dev/static/site-assets/images/share-ais-513315318.png" />
+</div>
+
 # Zavari Haus
 
-Premium serviced apartment website for Bahria Town Lahore, built with Next.js, TypeScript, GSAP, Lenis, and Framer Motion.
+Premium short-stay luxury apartment website for Pakistan.
 
-## Development
+This repo contains everything you need to run the site locally.
 
-```bash
-npm install
-npm run dev
-```
+## Run Locally
 
-## Production
+**Prerequisites:**  Node.js
 
-```bash
-npm run build
-npm run start
-```
 
-## Deploy
-
-Set `NEXT_PUBLIC_SITE_URL` in Vercel to your production domain before deploying.
+1. Install dependencies:
+   `npm install`
+2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) if you need Gemini-backed features
+3. Run the app:
+   `npm run dev`

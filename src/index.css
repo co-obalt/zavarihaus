@@ -1,0 +1,185 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,700;1,300&family=JetBrains+Mono:wght@300;400;500&display=swap');
+@import "tailwindcss";
+
+:root {
+  --bg: #FAF9F6;
+  --text: #1A1814;
+  --gold: #B8975A;
+  --gold-light: #D4B07A;
+  --dark: #111009;
+  --muted: #6B6560;
+  --bone: #FDFBF7;
+
+  --font-display: 'Cormorant Garamond', serif;
+  --font-body: 'DM Sans', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+}
+
+@theme {
+  --color-brand-bg: #FAF9F6;
+  --color-brand-text: #1A1814;
+  --color-gold: #B8975A;
+  --color-gold-light: #D4B07A;
+  --color-dark: #111009;
+  --color-muted: #6B6560;
+  --color-bone: #FDFBF7;
+
+  --font-display: 'Cormorant Garamond', serif;
+  --font-sans: 'DM Sans', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+}
+
+/* Custom Base Styles */
+body {
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+/* Smooth Scrolling Customizations */
+html.lenis, html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overflow: clip;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--gold);
+}
+
+/* Custom animations */
+@keyframes mouse-wheel {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  50% {
+    transform: translateY(6px);
+    opacity: 0.3;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.animate-mouse-wheel {
+  animation: mouse-wheel 1.6s cubic-bezier(0.16, 1, 0.3, 1) infinite;
+}
+
+@keyframes blurReveal {
+  from {
+    filter: blur(12px);
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    filter: blur(0px);
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-blur-reveal {
+  animation: blurReveal 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+/* --- High-end Elite Navbar Hover Transition Uiverse System --- */
+.uiverse-nav {
+  position: relative;
+  width: 400px;
+  height: 60px;
+}
+
+.uiverse-container {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  padding: 0.5em;
+  border-radius: 4px;
+}
+
+.uiverse-btn {
+  padding: 0.5em 1.5em;
+  cursor: pointer;
+  transition: 0.15s;
+}
+
+.uiverse-btn:hover {
+  background: rgba(184, 151, 90, 0.08);
+}
+
+.uiverse-outline {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.uiverse-rect {
+  stroke-dashoffset: 5;
+  stroke-dasharray: 0 0 10 40 10 40;
+  transition: stroke-dashoffset 0.5s cubic-bezier(0.16, 1, 0.3, 1), stroke-dasharray 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  stroke: #B8975A;
+  fill: none;
+  stroke-width: 1.5;
+}
+
+/* Hide default input styles */
+input[type="date"]::-webkit-inner-spin-button,
+input[type="date"]::-webkit-calendar-picker-indicator {
+  filter: sepia(100%) saturate(200%) hue-rotate(5deg) brightness(80%);
+  cursor: pointer;
+}
+
+/* Image curtain reveals */
+.image-curtain {
+  position: relative;
+  overflow: hidden;
+}
+.image-curtain::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-color: var(--bg);
+  transform-origin: top;
+  transition: transform 0.9s cubic-bezier(0.85, 0, 0.15, 1);
+}
+.image-curtain.reveal::after {
+  transform: scaleY(0);
+}
+
+/* Glassmorphism card elements */
+.booking-card-glass {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 25px 50px -12px rgba(17, 16, 9, 0.25);
+  border-radius: 2px;
+}

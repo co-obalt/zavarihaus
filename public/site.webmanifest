@@ -1,0 +1,22 @@
+{
+  "name": "Zavari Haus",
+  "short_name": "Zavari Haus",
+  "description": "Luxury short-stay apartments in Pakistan.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#111009",
+  "theme_color": "#111009",
+  "icons": [
+    {
+      "src": "/logo.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    },
+    {
+      "src": "/logo.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    }
+  ]
+}
