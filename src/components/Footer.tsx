@@ -31,7 +31,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenBooking }) => 
           <div className="lg:col-span-5 space-y-6">
             <div className="flex items-center gap-3">
               <img
-                src="/src/public/logo.png"
+                src="/logo.png"
                 alt="Zavari Haus Logo"
                 className="h-10 w-auto object-contain"
                 onError={(e) => {

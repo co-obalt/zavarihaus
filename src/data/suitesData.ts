@@ -1,7 +1,7 @@
 import { Suite } from '../types';
 
 export const SUITES_DATA: Suite[] = [
-  // --- CATEGORY 1: SKYVIEW (4 Rooms) ---
+  // --- CATEGORY 1: SKYVIEW (4 Rooms - R1) ---
   {
     id: 'skyview-signature-suite',
     category: 'Skyview',
@@ -14,12 +14,13 @@ export const SUITES_DATA: Suite[] = [
     bedrooms: 2,
     bathrooms: 2,
     guests: 4,
-    mainImage: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1400&q=85',
+    mainImage: '/images/suites/r1/sig_main.jpg',
     gallery: [
-      'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1400&q=85',
-      'https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?auto=format&fit=crop&w=1400&q=85',
-      'https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=1400&q=85',
-      'https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=1400&q=85'
+      '/images/suites/r1/sig_main.jpg',
+      '/images/suites/r1/sig_bed.jpg',
+      '/images/suites/r1/sig_bath.jpg',
+      '/images/suites/r1/sig_kitchen.jpg',
+      '/images/suites/r1/sig_lounge.jpg'
     ],
     description: 'Designed with quiet restraint, the Skyview Signature Suite features floor-to-ceiling windows overlooking the city skyline. Hand-crafted cabinetry, custom travertine marble counters, and organic brushed brass fixtures create an atmosphere of calm sophistication.',
     features: [
@@ -44,11 +45,12 @@ export const SUITES_DATA: Suite[] = [
     bedrooms: 2,
     bathrooms: 2.5,
     guests: 4,
-    mainImage: 'https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=1400&q=85',
+    mainImage: '/images/suites/r1/dup_main.jpg',
     gallery: [
-      'https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=1400&q=85',
-      'https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=1400&q=85',
-      'https://images.unsplash.com/photo-1616046229478-9901c5536a45?auto=format&fit=crop&w=1400&q=85'
+      '/images/suites/r1/dup_main.jpg',
+      '/images/suites/r1/dup_bed.jpg',
+      '/images/suites/r1/dup_lounge.jpg',
+      '/images/suites/r1/dup_kitchen.jpg'
     ],
     description: 'A seamless blend of classical symmetry and modern warm minimalism. The lower floor features an open dining salon and library, while an elegant floating oak staircase leads to the serene upper sleeping sanctuary.',
     features: [
@@ -71,11 +73,12 @@ export const SUITES_DATA: Suite[] = [
     bedrooms: 1,
     bathrooms: 1,
     guests: 2,
-    mainImage: 'https://images.unsplash.com/photo-1598928506311-c55ded91a20c?auto=format&fit=crop&w=1400&q=85',
+    mainImage: '/images/suites/r1/atl_main.jpg',
     gallery: [
-      'https://images.unsplash.com/photo-1598928506311-c55ded91a20c?auto=format&fit=crop&w=1400&q=85',
-      'https://images.unsplash.com/photo-1617806118233-18e1de247200?auto=format&fit=crop&w=1400&q=85',
-      'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?auto=format&fit=crop&w=1400&q=85'
+      '/images/suites/r1/atl_main.jpg',
+      '/images/suites/r1/atl_bath.jpg',
+      '/images/suites/r1/atl_bed.jpg',
+      '/images/suites/r1/atl_lounge.jpg'
     ],
     description: 'Effortless luxury meets modern functionality. Features a plush king bed, ergonomic workspace, rain shower, and a cozy breakfast nook overlooking peaceful skyline vistas.',
     features: [
@@ -98,12 +101,13 @@ export const SUITES_DATA: Suite[] = [
     bedrooms: 4,
     bathrooms: 4,
     guests: 8,
-    mainImage: 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1400&q=85',
+    mainImage: '/images/suites/r1/imp_main.jpg',
     gallery: [
-      'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1400&q=85',
-      'https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=1400&q=85',
-      'https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=1400&q=85',
-      'https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1400&q=85'
+      '/images/suites/r1/imp_main.jpg',
+      '/images/suites/r1/imp_bed.jpg',
+      '/images/suites/r1/imp_bath.jpg',
+      '/images/suites/r1/imp_lounge.jpg',
+      '/images/suites/r1/imp_kitchen.jpg'
     ],
     description: 'Occupying the top level, The Imperial Skyview Penthouse is an architectural masterpiece of quiet luxury. Boasting a private rooftop terrace, Bang & Olufsen sound, and private concierge attention.',
     features: [
@@ -116,7 +120,7 @@ export const SUITES_DATA: Suite[] = [
     ]
   },
 
-  // --- CATEGORY 2: FAMILY HEAVEN (4 Rooms) ---
+  // --- CATEGORY 2: FAMILY HEAVEN (4 Rooms - R2) ---
   {
     id: 'family-heaven-grand-suite',
     category: 'Family Heaven',
@@ -129,11 +133,13 @@ export const SUITES_DATA: Suite[] = [
     bedrooms: 3,
     bathrooms: 3,
     guests: 6,
-    mainImage: 'https://images.unsplash.com/photo-1600585152220-90363fe7e115?auto=format&fit=crop&w=1400&q=85',
+    mainImage: '/images/suites/r2/grand_main.jpg',
     gallery: [
-      'https://images.unsplash.com/photo-1600585152220-90363fe7e115?auto=format&fit=crop&w=1400&q=85',
-      'https://images.unsplash.com/photo-1600566753086-37f1a2072f6a?auto=format&fit=crop&w=1400&q=85',
-      'https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=1400&q=85'
+      '/images/suites/r2/grand_main.jpg',
+      '/images/suites/r2/grand_bed.jpg',
+      '/images/suites/r2/grand_bath.jpg',
+      '/images/suites/r2/grand_kitchen.jpg',
+      '/images/suites/r2/grand_lounge.jpg'
     ],
     description: 'Generously proportioned for family comfort and security. Offers a large central living room, separate dining quarters for 8 guests, soundproofed bedrooms, and a fully equipped family kitchen.',
     features: [
@@ -156,11 +162,12 @@ export const SUITES_DATA: Suite[] = [
     bedrooms: 3,
     bathrooms: 3.5,
     guests: 7,
-    mainImage: 'https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1400&q=85',
+    mainImage: '/images/suites/r2/villa_main.jpg',
     gallery: [
-      'https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1400&q=85',
-      'https://images.unsplash.com/photo-1600566752355-35792bedcfea?auto=format&fit=crop&w=1400&q=85',
-      'https://images.unsplash.com/photo-1618219908412-a29a1bb7b86e?auto=format&fit=crop&w=1400&q=85'
+      '/images/suites/r2/villa_main.jpg',
+      '/images/suites/r2/villa_bed.jpg',
+      '/images/suites/r2/villa_bath.jpg',
+      '/images/suites/r2/villa_kitchen.jpg'
     ],
     description: 'Surrounded by jasmine gardens and limestone walls, the Family Heaven Garden Villa provides complete family privacy. Relax on your private lawn or enjoy outdoor breakfasts.',
     features: [
@@ -183,11 +190,12 @@ export const SUITES_DATA: Suite[] = [
     bedrooms: 2,
     bathrooms: 2,
     guests: 5,
-    mainImage: 'https://images.unsplash.com/photo-1616046229478-9901c5536a45?auto=format&fit=crop&w=1400&q=85',
+    mainImage: '/images/suites/r2/loft_main.jpg',
     gallery: [
-      'https://images.unsplash.com/photo-1616046229478-9901c5536a45?auto=format&fit=crop&w=1400&q=85',
-      'https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=1400&q=85',
-      'https://images.unsplash.com/photo-1598928506311-c55ded91a20c?auto=format&fit=crop&w=1400&q=85'
+      '/images/suites/r2/loft_main.jpg',
+      '/images/suites/r2/loft_lounge.jpg',
+      '/images/suites/r2/loft_bed.jpg',
+      '/images/suites/r2/loft_lounge2.jpg'
     ],
     description: 'Designed for family comfort with connected bedroom suites, a shared central media salon, and spacious dressing rooms.',
     features: [
@@ -210,11 +218,13 @@ export const SUITES_DATA: Suite[] = [
     bedrooms: 4,
     bathrooms: 4.5,
     guests: 8,
-    mainImage: 'https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=1400&q=85',
+    mainImage: '/images/suites/r2/manor_main.jpg',
     gallery: [
-      'https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=1400&q=85',
-      'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1400&q=85',
-      'https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1400&q=85'
+      '/images/suites/r2/manor_main.jpg',
+      '/images/suites/r2/manor_bed.jpg',
+      '/images/suites/r2/manor_bath.jpg',
+      '/images/suites/r2/manor_kitchen.jpg',
+      '/images/suites/r2/manor_lounge.jpg'
     ],
     description: 'The ultimate space for large families. Includes 4 plush master bedrooms, a private movie salon, formal dining hall, and dedicated butler pantry.',
     features: [
@@ -226,7 +236,7 @@ export const SUITES_DATA: Suite[] = [
     ]
   },
 
-  // --- CATEGORY 3: SUNSET (4 Rooms) ---
+  // --- CATEGORY 3: SUNSET (4 Rooms - R3) ---
   {
     id: 'sunset-terrace-suite',
     category: 'Sunset',
@@ -239,11 +249,12 @@ export const SUITES_DATA: Suite[] = [
     bedrooms: 2,
     bathrooms: 2,
     guests: 4,
-    mainImage: 'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=1400&q=85',
+    mainImage: '/images/suites/r3/terr_main.jpg',
     gallery: [
-      'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=1400&q=85',
-      'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1400&q=85',
-      'https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?auto=format&fit=crop&w=1400&q=85'
+      '/images/suites/r3/terr_main.jpg',
+      '/images/suites/r3/terr_bed.jpg',
+      '/images/suites/r3/terr_bath.jpg',
+      '/images/suites/r3/terr_kitchen.jpg'
     ],
     description: 'Positioned perfectly on the western elevation, this suite offers dramatic views as the sun dips below the horizon. Features a outdoor lounge terrace and warm oak interiors.',
     features: [
@@ -266,11 +277,12 @@ export const SUITES_DATA: Suite[] = [
     bedrooms: 3,
     bathrooms: 3,
     guests: 6,
-    mainImage: 'https://images.unsplash.com/photo-1600566752355-35792bedcfea?auto=format&fit=crop&w=1400&q=85',
+    mainImage: '/images/suites/r3/pan_main.jpg',
     gallery: [
-      'https://images.unsplash.com/photo-1600566752355-35792bedcfea?auto=format&fit=crop&w=1400&q=85',
-      'https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1400&q=85',
-      'https://images.unsplash.com/photo-1618219908412-a29a1bb7b86e?auto=format&fit=crop&w=1400&q=85'
+      '/images/suites/r3/pan_main.jpg',
+      '/images/suites/r3/pan_bed.jpg',
+      '/images/suites/r3/pan_bath.jpg',
+      '/images/suites/r3/pan_kitchen.jpg'
     ],
     description: 'An architectural villa framed by warm timber slats and full glass walls. Enjoy breathtaking evening sunset panoramas from your private sun deck.',
     features: [
@@ -293,11 +305,12 @@ export const SUITES_DATA: Suite[] = [
     bedrooms: 1,
     bathrooms: 1.5,
     guests: 2,
-    mainImage: 'https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=1400&q=85',
+    mainImage: '/images/suites/r3/sanc_main.jpg',
     gallery: [
-      'https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=1400&q=85',
-      'https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=1400&q=85',
-      'https://images.unsplash.com/photo-1598928506311-c55ded91a20c?auto=format&fit=crop&w=1400&q=85'
+      '/images/suites/r3/sanc_main.jpg',
+      '/images/suites/r3/sanc_bed.jpg',
+      '/images/suites/r3/sanc_lounge.jpg',
+      '/images/suites/r3/sanc_bath.jpg'
     ],
     description: 'An intimate sanctuary designed specifically to capture sunset aesthetics. Relish quiet evenings with custom lighting, plush king bedding, and a window-side bathtub.',
     features: [
@@ -320,11 +333,13 @@ export const SUITES_DATA: Suite[] = [
     bedrooms: 3,
     bathrooms: 3.5,
     guests: 6,
-    mainImage: 'https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=1400&q=85',
+    mainImage: '/images/suites/r3/cel_main.jpg',
     gallery: [
-      'https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=1400&q=85',
-      'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1400&q=85',
-      'https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1400&q=85'
+      '/images/suites/r3/cel_main.jpg',
+      '/images/suites/r3/cel_bed.jpg',
+      '/images/suites/r3/cel_kitchen.jpg',
+      '/images/suites/r3/cel_lounge.jpg',
+      '/images/suites/r3/cel_bed2.jpg'
     ],
     description: 'An extraordinary penthouse suite elevated above the city skyline. Experience twilight transition in a glass-walled celestial salon with warm hearth.',
     features: [

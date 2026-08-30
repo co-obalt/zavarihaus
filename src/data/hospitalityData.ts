@@ -6,7 +6,7 @@ export const EXPERIENCES_DATA: ExperienceItem[] = [
     title: 'Bespoke Concierge',
     subtitle: 'PERSONALIZED ATTENTION',
     description: 'Our dedicated team provides seamless service from private airport transfers and priority dining reservations to tailored city excursions.',
-    image: 'https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1000&q=85',
+    image: '/images/lobby/lobby_main.jpg',
     tag: '24/7 ATTENTION'
   },
   {
@@ -14,7 +14,7 @@ export const EXPERIENCES_DATA: ExperienceItem[] = [
     title: 'In-Suite Dining',
     subtitle: 'CULINARY ARTISTRY',
     description: 'Chef-crafted menus featuring seasonal organic ingredients, served privately in the comfort of your suite dining room with fine beverages.',
-    image: 'https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=1000&q=85',
+    image: '/images/suites/r1/sig_kitchen.jpg',
     tag: 'PRIVATE CHEF'
   },
   {
@@ -22,7 +22,7 @@ export const EXPERIENCES_DATA: ExperienceItem[] = [
     title: 'Acoustic Sanctuary',
     subtitle: 'QUIET LUXURY',
     description: 'Triple-glazed soundproof insulation, automated blackout drapes, and circadian ambient lighting for restful sleep and deep focus.',
-    image: 'https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=1000&q=85',
+    image: '/images/suites/r2/grand_bed.jpg',
     tag: 'TOTAL TRANQUILITY'
   },
   {
@@ -30,7 +30,7 @@ export const EXPERIENCES_DATA: ExperienceItem[] = [
     title: 'Chauffeur & Valet',
     subtitle: 'EFFORTLESS MOBILITY',
     description: 'Complimentary private parking, valet service, and luxury private airport transfers on demand.',
-    image: 'https://images.unsplash.com/photo-1549399542-7e3f8b79c341?auto=format&fit=crop&w=1000&q=85',
+    image: '/images/exterior/day_front.jpg',
     tag: 'PRIVATE TRANSFERS'
   }
 ];
@@ -40,56 +40,56 @@ export const GALLERY_DATA: GalleryItem[] = [
     id: 'g-1',
     title: 'The Skyview Living Salon',
     category: 'living',
-    image: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=85',
+    image: '/images/suites/r1/sig_lounge.jpg',
     caption: 'Warm oak paneling and plush bouclé seating bathed in natural afternoon sunlight.'
   },
   {
     id: 'g-2',
     title: 'Master Bedroom Sanctuary',
     category: 'suites',
-    image: 'https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=1200&q=85',
+    image: '/images/suites/r2/grand_bed.jpg',
     caption: '400-thread Egyptian linen bedding paired with muted champagne gold bedside lamps.'
   },
   {
     id: 'g-3',
     title: 'Private Terrace Dining',
     category: 'dining',
-    image: 'https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=1200&q=85',
+    image: '/images/suites/r3/terr_main.jpg',
     caption: 'Chef-prepared private dining set against sweeping skyline vistas.'
   },
   {
     id: 'g-4',
     title: 'Architectural Stairwell Detail',
     category: 'architectural',
-    image: 'https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=1200&q=85',
+    image: '/images/lobby/lobby_detail.jpg',
     caption: 'Clean geometric lines, floating oak treads, and warm travertine limestone finishes.'
   },
   {
     id: 'g-5',
     title: 'Twilight Cityscape View',
     category: 'views',
-    image: 'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=1200&q=85',
+    image: '/images/exterior/night_front.jpg',
     caption: 'Quiet luxury balcony vantage point at dusk.'
   },
   {
     id: 'g-6',
     title: 'Penthouse Freestanding Tub',
     category: 'suites',
-    image: 'https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=1200&q=85',
+    image: '/images/suites/r1/imp_bath.jpg',
     caption: 'Custom travertine stone bath with organic botanical bath infusions.'
   },
   {
     id: 'g-7',
     title: 'Bespoke Espresso & Wine Salon',
     category: 'living',
-    image: 'https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1200&q=85',
+    image: '/images/suites/r2/manor_kitchen.jpg',
     caption: 'Handcrafted dark espresso cabinetry with champagne brass accents.'
   },
   {
     id: 'g-8',
     title: 'Courtyard Garden View',
     category: 'views',
-    image: 'https://images.unsplash.com/photo-1600566752355-35792bedcfea?auto=format&fit=crop&w=1200&q=85',
+    image: '/images/exterior/night_front2.jpg',
     caption: 'Secluded inner courtyard surrounded by flowering jasmine and limestone walls.'
   }
 ];

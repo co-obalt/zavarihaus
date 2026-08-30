@@ -25,11 +25,14 @@ export const Hero: React.FC<HeroProps> = ({ onExploreSpaces, onOpenBookingWithDe
 
   return (
     <section id="hero" className="relative pt-[140px] md:pt-[170px] pb-[80px] md:pb-[120px] bg-[#FAF9F6] overflow-hidden">
-      {/* Decorative architectural background element */}
+      {/* Decorative architectural background element (Video loop) */}
       <div className="absolute inset-0 z-0 opacity-15 pointer-events-none">
-        <img
-          src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=2000&q=80"
-          alt="Zavari Haus Architecture"
+        <video
+          src="/videos/balcony_rain.mp4"
+          autoPlay
+          loop
+          muted
+          playsInline
           className="w-full h-full object-cover filter grayscale contrast-125"
         />
       </div>
@@ -90,7 +93,7 @@ export const Hero: React.FC<HeroProps> = ({ onExploreSpaces, onOpenBookingWithDe
             >
               <div className="relative aspect-[3/2] overflow-hidden">
                 <img
-                  src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1200&q=85"
+                  src="/images/suites/r1/imp_main.jpg"
                   alt="Zavari Haus Grand Penthouse"
                   className="w-full h-full object-cover transition-transform duration-700 hover:scale-[1.03]"
                 />

@@ -53,7 +53,7 @@ export const Header: React.FC<HeaderProps> = ({
       >
         <div className="max-w-[1440px] mx-auto h-full px-[5vw] flex items-center justify-between">
           
-          {/* LOGO WITH /src/public/logo.png IMAGE ONLY */}
+          {/* LOGO WITH /logo.png IMAGE ONLY */}
           <button
             onClick={() => handleNavClick('hero')}
             className="group flex items-center focus:outline-none"
@@ -61,7 +61,7 @@ export const Header: React.FC<HeaderProps> = ({
           >
             {!imgError ? (
               <img
-                src="/src/public/logo.png"
+                src="/logo.png"
                 alt="Zavari Haus Logo"
                 className="h-10 md:h-12 w-auto object-contain transition-transform duration-300 group-hover:scale-[1.03]"
                 onError={() => setImgError(true)}
