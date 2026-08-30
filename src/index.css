@@ -1,0 +1,82 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --color-bg: #FAF9F6;
+    --color-surface: #FDFBF7;
+    --color-primary: #B8975A;
+    --color-primary-soft: #EDE5D7;
+    --color-dark: #1C1C1C;
+    --color-espresso: #513431;
+    --color-text: #1C1C1C;
+    --color-text-muted: #77736E;
+    --color-border: #E8E1D6;
+    --color-white: #FFFFFF;
+  }
+
+  body {
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    line-height: 1.7;
+    letter-spacing: -0.01em;
+  }
+
+  h1, h2, h3, h4, .font-serif {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+  }
+}
+
+/* Custom Utilities for Zavari Haus Design System */
+.font-serif-display {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+}
+
+.font-sans-ui {
+  font-family: 'Inter', sans-serif;
+}
+
+.gold-accent {
+  color: #B8975A;
+}
+
+.gold-italic {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-style: italic;
+  color: #B8975A;
+}
+
+.bg-ivory {
+  background-color: #FAF9F6;
+}
+
+.bg-surface-warm {
+  background-color: #FDFBF7;
+}
+
+.bg-espresso {
+  background-color: #513431;
+}
+
+.border-light-beige {
+  border-color: #E8E1D6;
+}
+
+/* Subtle luxury scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #FAF9F6;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #E8E1D6;
+  border-radius: 2px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #B8975A;
+}

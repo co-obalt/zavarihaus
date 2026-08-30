@@ -1,0 +1,6 @@
+{
+  "name": "Zavari Haus",
+  "description": "Zavari Haus offers a refined, editorial luxury-hospitality experience in boutique serviced apartments and suites.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

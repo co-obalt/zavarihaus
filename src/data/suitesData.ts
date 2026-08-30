@@ -1,0 +1,338 @@
+import { Suite } from '../types';
+
+export const SUITES_DATA: Suite[] = [
+  // --- CATEGORY 1: SKYVIEW (4 Rooms) ---
+  {
+    id: 'skyview-signature-suite',
+    category: 'Skyview',
+    badge: 'SKYVIEW SUITE',
+    title: 'The Skyview Signature Suite',
+    tagline: 'Panoramic skyline views framed by warm minimalist oak, floor-to-ceiling double glazing, and soft linen.',
+    pricePkr: 6500,
+    rateLabel: 'RATE / NIGHT',
+    sizeSqFt: 1150,
+    bedrooms: 2,
+    bathrooms: 2,
+    guests: 4,
+    mainImage: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1400&q=85',
+    gallery: [
+      'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1400&q=85',
+      'https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?auto=format&fit=crop&w=1400&q=85',
+      'https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=1400&q=85',
+      'https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=1400&q=85'
+    ],
+    description: 'Designed with quiet restraint, the Skyview Signature Suite features floor-to-ceiling windows overlooking the city skyline. Hand-crafted cabinetry, custom travertine marble counters, and organic brushed brass fixtures create an atmosphere of calm sophistication.',
+    features: [
+      'Private corner balcony with skyline views',
+      'Freestanding deep soaking bathtub',
+      'Sub-Zero & Miele integrated kitchen suite',
+      'Custom 400-thread Egyptian cotton bedding',
+      'Automated blackout drapery & circadian lighting',
+      'Private high-speed fiber Wi-Fi',
+      '24/7 Butler & laundry service'
+    ]
+  },
+  {
+    id: 'skyview-duplex-residence',
+    category: 'Skyview',
+    badge: 'SKYVIEW DUPLEX',
+    title: 'Skyview Duplex Residence',
+    tagline: 'Two stories of architectural grandeur with soaring double-height ceilings overlooking the city.',
+    pricePkr: 8000,
+    rateLabel: 'RATE / NIGHT',
+    sizeSqFt: 1650,
+    bedrooms: 2,
+    bathrooms: 2.5,
+    guests: 4,
+    mainImage: 'https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=1400&q=85',
+    gallery: [
+      'https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=1400&q=85',
+      'https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=1400&q=85',
+      'https://images.unsplash.com/photo-1616046229478-9901c5536a45?auto=format&fit=crop&w=1400&q=85'
+    ],
+    description: 'A seamless blend of classical symmetry and modern warm minimalism. The lower floor features an open dining salon and library, while an elegant floating oak staircase leads to the serene upper sleeping sanctuary.',
+    features: [
+      '6-meter double-height glass library wall',
+      'Executive work lounge with leather desk setup',
+      'Custom terrazzo & warm oak finishes',
+      'Private coffee & tea preparation station',
+      'Daily turn-down service'
+    ]
+  },
+  {
+    id: 'skyview-atelier-studio',
+    category: 'Skyview',
+    badge: 'SKYVIEW STUDIO',
+    title: 'Skyview Atelier Studio',
+    tagline: 'Intimate high-floor corner residence designed for discerning executive travelers.',
+    pricePkr: 6000,
+    rateLabel: 'RATE / NIGHT',
+    sizeSqFt: 780,
+    bedrooms: 1,
+    bathrooms: 1,
+    guests: 2,
+    mainImage: 'https://images.unsplash.com/photo-1598928506311-c55ded91a20c?auto=format&fit=crop&w=1400&q=85',
+    gallery: [
+      'https://images.unsplash.com/photo-1598928506311-c55ded91a20c?auto=format&fit=crop&w=1400&q=85',
+      'https://images.unsplash.com/photo-1617806118233-18e1de247200?auto=format&fit=crop&w=1400&q=85',
+      'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?auto=format&fit=crop&w=1400&q=85'
+    ],
+    description: 'Effortless luxury meets modern functionality. Features a plush king bed, ergonomic workspace, rain shower, and a cozy breakfast nook overlooking peaceful skyline vistas.',
+    features: [
+      'High-floor city views',
+      'High-speed Wi-Fi 6 & smart hub',
+      'Nespresso Vertuo coffee bar',
+      'Rainfall walk-in shower',
+      'Daily laundry service available'
+    ]
+  },
+  {
+    id: 'skyview-imperial-penthouse',
+    category: 'Skyview',
+    badge: 'SKYVIEW PENTHOUSE',
+    title: 'The Imperial Skyview Penthouse',
+    tagline: 'Expansive penthouse with private rooftop terrace, outdoor fire lounge, and panoramic skyline vistas.',
+    pricePkr: 9000,
+    rateLabel: 'RATE / NIGHT',
+    sizeSqFt: 2600,
+    bedrooms: 4,
+    bathrooms: 4,
+    guests: 8,
+    mainImage: 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1400&q=85',
+    gallery: [
+      'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1400&q=85',
+      'https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=1400&q=85',
+      'https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=1400&q=85',
+      'https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1400&q=85'
+    ],
+    description: 'Occupying the top level, The Imperial Skyview Penthouse is an architectural masterpiece of quiet luxury. Boasting a private rooftop terrace, Bang & Olufsen sound, and private concierge attention.',
+    features: [
+      'Rooftop terrace with fire lounge',
+      'Private elevator entry',
+      'Master suite with double rain shower',
+      'Bespoke espresso bar',
+      'Dedicated 24/7 Butler',
+      'Valet parking included'
+    ]
+  },
+
+  // --- CATEGORY 2: FAMILY HEAVEN (4 Rooms) ---
+  {
+    id: 'family-heaven-grand-suite',
+    category: 'Family Heaven',
+    badge: 'FAMILY HEAVEN',
+    title: 'Family Heaven Grand Suite',
+    tagline: 'Spacious 3-bedroom family sanctuary with open living salon, dining room, and full chef kitchen.',
+    pricePkr: 7500,
+    rateLabel: 'RATE / NIGHT',
+    sizeSqFt: 1950,
+    bedrooms: 3,
+    bathrooms: 3,
+    guests: 6,
+    mainImage: 'https://images.unsplash.com/photo-1600585152220-90363fe7e115?auto=format&fit=crop&w=1400&q=85',
+    gallery: [
+      'https://images.unsplash.com/photo-1600585152220-90363fe7e115?auto=format&fit=crop&w=1400&q=85',
+      'https://images.unsplash.com/photo-1600566753086-37f1a2072f6a?auto=format&fit=crop&w=1400&q=85',
+      'https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=1400&q=85'
+    ],
+    description: 'Generously proportioned for family comfort and security. Offers a large central living room, separate dining quarters for 8 guests, soundproofed bedrooms, and a fully equipped family kitchen.',
+    features: [
+      'Generous 8-person family dining table',
+      'Soundproofed acoustic bedroom partitions',
+      'Fully equipped family kitchen',
+      'Dual vanity marble bathrooms',
+      'Child-safe balcony locks & quiet air conditioning'
+    ]
+  },
+  {
+    id: 'family-heaven-garden-villa',
+    category: 'Family Heaven',
+    badge: 'FAMILY HEAVEN VILLA',
+    title: 'Family Heaven Garden Villa',
+    tagline: 'Secluded ground-level villa featuring a private enclosed lawn, garden patio, and hearth.',
+    pricePkr: 8500,
+    rateLabel: 'RATE / NIGHT',
+    sizeSqFt: 2100,
+    bedrooms: 3,
+    bathrooms: 3.5,
+    guests: 7,
+    mainImage: 'https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1400&q=85',
+    gallery: [
+      'https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1400&q=85',
+      'https://images.unsplash.com/photo-1600566752355-35792bedcfea?auto=format&fit=crop&w=1400&q=85',
+      'https://images.unsplash.com/photo-1618219908412-a29a1bb7b86e?auto=format&fit=crop&w=1400&q=85'
+    ],
+    description: 'Surrounded by jasmine gardens and limestone walls, the Family Heaven Garden Villa provides complete family privacy. Relax on your private lawn or enjoy outdoor breakfasts.',
+    features: [
+      'Enclosed private Mediterranean garden lawn',
+      'Outdoor family dining area & hearth',
+      'Marble bathrooms with garden views',
+      'Private chef catering available upon request',
+      'Subtle garden security & ambient lighting'
+    ]
+  },
+  {
+    id: 'family-heaven-connecting-loft',
+    category: 'Family Heaven',
+    badge: 'FAMILY HEAVEN LOFT',
+    title: 'Family Heaven Connecting Loft',
+    tagline: 'Dual-wing interconnected loft residence ideal for multi-generational families.',
+    pricePkr: 7000,
+    rateLabel: 'RATE / NIGHT',
+    sizeSqFt: 1500,
+    bedrooms: 2,
+    bathrooms: 2,
+    guests: 5,
+    mainImage: 'https://images.unsplash.com/photo-1616046229478-9901c5536a45?auto=format&fit=crop&w=1400&q=85',
+    gallery: [
+      'https://images.unsplash.com/photo-1616046229478-9901c5536a45?auto=format&fit=crop&w=1400&q=85',
+      'https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=1400&q=85',
+      'https://images.unsplash.com/photo-1598928506311-c55ded91a20c?auto=format&fit=crop&w=1400&q=85'
+    ],
+    description: 'Designed for family comfort with connected bedroom suites, a shared central media salon, and spacious dressing rooms.',
+    features: [
+      'Interconnecting security doors between wings',
+      'Spacious central lounge with Smart TV 4K',
+      'Hypoallergenic bedding options',
+      'Kitchenette & dining breakfast bar',
+      '24/7 concierge assistance'
+    ]
+  },
+  {
+    id: 'family-heaven-royal-manor',
+    category: 'Family Heaven',
+    badge: 'FAMILY HEAVEN MANOR',
+    title: 'Family Heaven Royal Manor',
+    tagline: 'Superb 4-bedroom estate residence with private media room, large dining hall, and butler service.',
+    pricePkr: 9000,
+    rateLabel: 'RATE / NIGHT',
+    sizeSqFt: 2550,
+    bedrooms: 4,
+    bathrooms: 4.5,
+    guests: 8,
+    mainImage: 'https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=1400&q=85',
+    gallery: [
+      'https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=1400&q=85',
+      'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1400&q=85',
+      'https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1400&q=85'
+    ],
+    description: 'The ultimate space for large families. Includes 4 plush master bedrooms, a private movie salon, formal dining hall, and dedicated butler pantry.',
+    features: [
+      '4 Master suite bedrooms with en-suite baths',
+      'Private family cinema room',
+      '10-seater formal dining table',
+      'Butler kitchen with separate entrance',
+      '24/7 dedicated butler service'
+    ]
+  },
+
+  // --- CATEGORY 3: SUNSET (4 Rooms) ---
+  {
+    id: 'sunset-terrace-suite',
+    category: 'Sunset',
+    badge: 'SUNSET SUITE',
+    title: 'The Sunset Terrace Suite',
+    tagline: 'West-facing terrace residence designed to capture golden hour sunsets over the city skyline.',
+    pricePkr: 7000,
+    rateLabel: 'RATE / NIGHT',
+    sizeSqFt: 1300,
+    bedrooms: 2,
+    bathrooms: 2,
+    guests: 4,
+    mainImage: 'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=1400&q=85',
+    gallery: [
+      'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=1400&q=85',
+      'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1400&q=85',
+      'https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?auto=format&fit=crop&w=1400&q=85'
+    ],
+    description: 'Positioned perfectly on the western elevation, this suite offers dramatic views as the sun dips below the horizon. Features a outdoor lounge terrace and warm oak interiors.',
+    features: [
+      'West-facing private sunset viewing terrace',
+      'Outdoor lounge seating & ambient heating',
+      'Custom travertine stone bath',
+      'Espresso bar & wine cooler',
+      'Automated evening mood lighting'
+    ]
+  },
+  {
+    id: 'sunset-panorama-villa',
+    category: 'Sunset',
+    badge: 'SUNSET VILLA',
+    title: 'Sunset Panorama Villa',
+    tagline: 'Warm timber and limestone interiors featuring an expansive sun-drenched sunset deck.',
+    pricePkr: 8500,
+    rateLabel: 'RATE / NIGHT',
+    sizeSqFt: 2050,
+    bedrooms: 3,
+    bathrooms: 3,
+    guests: 6,
+    mainImage: 'https://images.unsplash.com/photo-1600566752355-35792bedcfea?auto=format&fit=crop&w=1400&q=85',
+    gallery: [
+      'https://images.unsplash.com/photo-1600566752355-35792bedcfea?auto=format&fit=crop&w=1400&q=85',
+      'https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1400&q=85',
+      'https://images.unsplash.com/photo-1618219908412-a29a1bb7b86e?auto=format&fit=crop&w=1400&q=85'
+    ],
+    description: 'An architectural villa framed by warm timber slats and full glass walls. Enjoy breathtaking evening sunset panoramas from your private sun deck.',
+    features: [
+      'Panoramic 180-degree sunset horizon deck',
+      'Open-concept living room with fireplace',
+      'Master bedroom with sunset terrace access',
+      'Freestanding bathtub overlooking sunset',
+      'Private chef dining setup'
+    ]
+  },
+  {
+    id: 'sunset-sanctuary-studio',
+    category: 'Sunset',
+    badge: 'SUNSET SANCTUARY',
+    title: 'Sunset Sanctuary Studio',
+    tagline: 'Serene sunset studio with freestanding tub framing golden twilight horizon views.',
+    pricePkr: 6500,
+    rateLabel: 'RATE / NIGHT',
+    sizeSqFt: 920,
+    bedrooms: 1,
+    bathrooms: 1.5,
+    guests: 2,
+    mainImage: 'https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=1400&q=85',
+    gallery: [
+      'https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=1400&q=85',
+      'https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=1400&q=85',
+      'https://images.unsplash.com/photo-1598928506311-c55ded91a20c?auto=format&fit=crop&w=1400&q=85'
+    ],
+    description: 'An intimate sanctuary designed specifically to capture sunset aesthetics. Relish quiet evenings with custom lighting, plush king bedding, and a window-side bathtub.',
+    features: [
+      'Window-side soaking tub with sunset view',
+      'King-size plush bedding with Egyptian cotton',
+      'Integrated Bluetooth acoustic soundbar',
+      'Nespresso gourmet coffee setup',
+      'In-suite dining service'
+    ]
+  },
+  {
+    id: 'sunset-celestial-suite',
+    category: 'Sunset',
+    badge: 'SUNSET CELESTIAL',
+    title: 'Sunset Celestial Suite',
+    tagline: 'Ultra-exclusive top-tier sunset suite with private glass lounge and outdoor fire pit.',
+    pricePkr: 9000,
+    rateLabel: 'RATE / NIGHT',
+    sizeSqFt: 2400,
+    bedrooms: 3,
+    bathrooms: 3.5,
+    guests: 6,
+    mainImage: 'https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=1400&q=85',
+    gallery: [
+      'https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=1400&q=85',
+      'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1400&q=85',
+      'https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1400&q=85'
+    ],
+    description: 'An extraordinary penthouse suite elevated above the city skyline. Experience twilight transition in a glass-walled celestial salon with warm hearth.',
+    features: [
+      'Glass celestial lounge with sunset vistas',
+      'Private outdoor deck with gas fire pit',
+      'Three master bedrooms with rain showers',
+      'Integrated Sub-Zero wine & dining bar',
+      '24/7 butler service'
+    ]
+  }
+];
