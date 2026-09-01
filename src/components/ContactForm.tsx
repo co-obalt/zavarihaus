@@ -125,7 +125,7 @@ export const ContactForm: React.FC = () => {
                       className="w-full bg-transparent border-none border-b border-[#E8E1D6] py-2 text-[16px] text-[#77736E] focus:outline-none focus:border-[#B8975A] cursor-pointer transition-colors"
                     >
                       <option value="Skyview Residence">Skyview Residence</option>
-                      <option value="The Grand Penthouse">The Grand Penthouse</option>
+                      <option value="The Skyview Signature Suite">The Skyview Signature Suite</option>
                       <option value="Heritage Duplex Suite">Heritage Duplex Suite</option>
                       <option value="Executive Studio">Executive Studio</option>
                       <option value="Garden Villa">Garden Villa</option>

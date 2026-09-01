@@ -4,9 +4,10 @@ import { ArrowUpRight, Check } from 'lucide-react';
 interface FooterProps {
   onNavigate: (sectionId: string) => void;
   onOpenBooking: () => void;
+  onOpenWelcomeGuide?: () => void;
 }
 
-export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenBooking }) => {
+export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenBooking, onOpenWelcomeGuide }) => {
   const [email, setEmail] = useState('');
   const [subscribed, setSubscribed] = useState(false);
 
@@ -18,6 +19,15 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenBooking }) => 
       setSubscribed(false);
       setEmail('');
     }, 4000);
+  };
+
+  const handleWelcomeGuideClick = () => {
+    if (onOpenWelcomeGuide) {
+      onOpenWelcomeGuide();
+    } else {
+      window.history.pushState(null, '', '/welcome-guide');
+      window.dispatchEvent(new PopStateEvent('popstate'));
+    }
   };
 
   return (
@@ -102,6 +112,11 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenBooking }) => 
               <li>
                 <button onClick={() => onNavigate('faq')} className="hover:text-[#B8975A] transition-colors">
                   Information &amp; FAQ
+                </button>
+              </li>
+              <li>
+                <button onClick={handleWelcomeGuideClick} className="text-[#B8975A] font-medium hover:underline transition-colors">
+                  Resident Welcome Guide →
                 </button>
               </li>
             </ul>

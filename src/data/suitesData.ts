@@ -90,11 +90,11 @@ export const SUITES_DATA: Suite[] = [
     ]
   },
   {
-    id: 'skyview-imperial-penthouse',
+    id: 'skyview-imperial-residence',
     category: 'Skyview',
-    badge: 'SKYVIEW PENTHOUSE',
-    title: 'The Imperial Skyview Penthouse',
-    tagline: 'Expansive penthouse with private rooftop terrace, outdoor fire lounge, and panoramic skyline vistas.',
+    badge: 'SKYVIEW IMPERIAL',
+    title: 'The Imperial Skyview Residence',
+    tagline: 'Expansive luxury residence with private scenic terrace, outdoor fire lounge, and panoramic skyline vistas.',
     pricePkr: 9000,
     rateLabel: 'RATE / NIGHT',
     sizeSqFt: 2600,
@@ -109,7 +109,7 @@ export const SUITES_DATA: Suite[] = [
       '/images/suites/r1/imp_lounge.jpg',
       '/images/suites/r1/imp_kitchen.jpg'
     ],
-    description: 'Occupying the top level, The Imperial Skyview Penthouse is an architectural masterpiece of quiet luxury. Boasting a private rooftop terrace, Bang & Olufsen sound, and private concierge attention.',
+    description: 'Occupying the top level, The Imperial Skyview Residence is an architectural masterpiece of quiet luxury. Boasting a private rooftop terrace, Bang & Olufsen sound, and private concierge attention.',
     features: [
       'Rooftop terrace with fire lounge',
       'Private elevator entry',
@@ -341,7 +341,7 @@ export const SUITES_DATA: Suite[] = [
       '/images/suites/r3/cel_lounge.jpg',
       '/images/suites/r3/cel_bed2.jpg'
     ],
-    description: 'An extraordinary penthouse suite elevated above the city skyline. Experience twilight transition in a glass-walled celestial salon with warm hearth.',
+    description: 'An extraordinary luxury residence elevated above the city skyline. Experience twilight transition in a glass-walled celestial salon with warm hearth.',
     features: [
       'Glass celestial lounge with sunset vistas',
       'Private outdoor deck with gas fire pit',

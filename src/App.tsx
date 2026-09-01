@@ -1,20 +1,30 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, lazy, Suspense } from 'react';
 import { Suite, BookingInquiry } from './types';
 import { Header } from './components/Header';
 import { Hero } from './components/Hero';
 import { SpacesSection } from './components/SpacesSection';
-import { SuiteDetailModal } from './components/SuiteDetailModal';
 import { ExperienceSection } from './components/ExperienceSection';
 import { GallerySection } from './components/GallerySection';
 import { LocationSection } from './components/LocationSection';
 import { ReviewsSection } from './components/ReviewsSection';
 import { FaqSection } from './components/FaqSection';
 import { ContactForm } from './components/ContactForm';
-import { BookingModal } from './components/BookingModal';
 import { Footer } from './components/Footer';
-import { Check, Calendar } from 'lucide-react';
+import { Check } from 'lucide-react';
+
+const WelcomeGuide = lazy(() => import('./pages/WelcomeGuide'));
+const SuiteDetailModal = lazy(() => import('./components/SuiteDetailModal').then(m => ({ default: m.SuiteDetailModal })));
+const BookingModal = lazy(() => import('./components/BookingModal').then(m => ({ default: m.BookingModal })));
 
 export default function App() {
+  const [currentRoute, setCurrentRoute] = useState<'home' | 'welcome-guide'>(() => {
+    const path = window.location.pathname.toLowerCase();
+    if (path.includes('welcome') || path.includes('guide')) {
+      return 'welcome-guide';
+    }
+    return 'home';
+  });
+
   const [activeSection, setActiveSection] = useState('hero');
   const [selectedSuite, setSelectedSuite] = useState<Suite | null>(null);
   const [isBookingModalOpen, setIsBookingModalOpen] = useState(false);
@@ -27,7 +37,46 @@ export default function App() {
 
   const [activeBooking, setActiveBooking] = useState<BookingInquiry | null>(null);
 
+  // Handle browser back/forward buttons
+  useEffect(() => {
+    const handlePopState = () => {
+      const path = window.location.pathname.toLowerCase();
+      if (path.includes('welcome') || path.includes('guide')) {
+        setCurrentRoute('welcome-guide');
+      } else {
+        setCurrentRoute('home');
+      }
+    };
+
+    window.addEventListener('popstate', handlePopState);
+    return () => window.removeEventListener('popstate', handlePopState);
+  }, []);
+
+  const navigateToHome = () => {
+    setCurrentRoute('home');
+    window.history.pushState(null, '', '/');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  const navigateToWelcomeGuide = () => {
+    setCurrentRoute('welcome-guide');
+    window.history.pushState(null, '', '/welcome-guide');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   const handleNavigate = (sectionId: string) => {
+    if (currentRoute !== 'home') {
+      setCurrentRoute('home');
+      window.history.pushState(null, '', '/');
+      setTimeout(() => {
+        const element = document.getElementById(sectionId);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 100);
+      return;
+    }
+
     setActiveSection(sectionId);
     const element = document.getElementById(sectionId);
     if (element) {
@@ -60,6 +109,15 @@ export default function App() {
     setActiveBooking(booking);
   };
 
+  // If user is viewing the dedicated /welcome-guide page
+  if (currentRoute === 'welcome-guide') {
+    return (
+      <Suspense fallback={<div className="min-h-screen bg-[#FAF9F6] flex items-center justify-center text-[#B8975A] font-serif text-xl tracking-widest uppercase">ZAVARI HAUS...</div>}>
+        <WelcomeGuide onBackToHome={navigateToHome} />
+      </Suspense>
+    );
+  }
+
   return (
     <div className="min-h-screen bg-[#FAF9F6] text-[#1C1C1C] flex flex-col font-sans selection:bg-[#EDE5D7] selection:text-[#513431]">
       
@@ -74,7 +132,7 @@ export default function App() {
           </div>
           <button
             onClick={() => handleOpenBookingWithDetails({ suiteId: activeBooking.suiteId })}
-            className="underline hover:text-white transition-colors"
+            className="underline hover:text-white transition-colors cursor-pointer"
           >
             VIEW DETAILS
           </button>
@@ -86,6 +144,7 @@ export default function App() {
         activeSection={activeSection}
         onNavigate={handleNavigate}
         onOpenBooking={handleOpenBooking}
+        onOpenWelcomeGuide={navigateToWelcomeGuide}
       />
 
       {/* Main Content Sections */}
@@ -114,25 +173,37 @@ export default function App() {
       </main>
 
       {/* Footer */}
-      <Footer onNavigate={handleNavigate} onOpenBooking={handleOpenBooking} />
+      <Footer
+        onNavigate={handleNavigate}
+        onOpenBooking={handleOpenBooking}
+        onOpenWelcomeGuide={navigateToWelcomeGuide}
+      />
 
       {/* Suite Details Modal */}
-      <SuiteDetailModal
-        suite={selectedSuite}
-        onClose={() => setSelectedSuite(null)}
-        onBookNow={handleBookSuite}
-      />
+      {selectedSuite && (
+        <Suspense fallback={null}>
+          <SuiteDetailModal
+            suite={selectedSuite}
+            onClose={() => setSelectedSuite(null)}
+            onBookNow={handleBookSuite}
+          />
+        </Suspense>
+      )}
 
       {/* Booking Engine Modal */}
-      <BookingModal
-        isOpen={isBookingModalOpen}
-        initialSuiteId={bookingDetails.suiteId}
-        initialCheckIn={bookingDetails.checkIn}
-        initialCheckOut={bookingDetails.checkOut}
-        initialGuests={bookingDetails.guests}
-        onClose={() => setIsBookingModalOpen(false)}
-        onBookingConfirmed={handleBookingConfirmed}
-      />
+      {isBookingModalOpen && (
+        <Suspense fallback={null}>
+          <BookingModal
+            isOpen={isBookingModalOpen}
+            initialSuiteId={bookingDetails.suiteId}
+            initialCheckIn={bookingDetails.checkIn}
+            initialCheckOut={bookingDetails.checkOut}
+            initialGuests={bookingDetails.guests}
+            onClose={() => setIsBookingModalOpen(false)}
+            onBookingConfirmed={handleBookingConfirmed}
+          />
+        </Suspense>
+      )}
     </div>
   );
 }

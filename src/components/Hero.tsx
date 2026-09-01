@@ -33,6 +33,7 @@ export const Hero: React.FC<HeroProps> = ({ onExploreSpaces, onOpenBookingWithDe
           loop
           muted
           playsInline
+          preload="metadata"
           className="w-full h-full object-cover filter grayscale contrast-125"
         />
       </div>
@@ -91,10 +92,10 @@ export const Hero: React.FC<HeroProps> = ({ onExploreSpaces, onOpenBookingWithDe
               className="relative bg-[#FDFBF7] p-3 border border-[#E8E1D6] shadow-[0_20px_45px_rgba(28,28,28,0.10)]"
               style={{ borderRadius: '2px' }}
             >
-              <div className="relative aspect-[3/2] overflow-hidden">
+              <div className="relative aspect-[4/5] overflow-hidden">
                 <img
-                  src="/images/suites/r1/imp_main.jpg"
-                  alt="Zavari Haus Grand Penthouse"
+                  src="/images/suites/r1/sig_bed.jpg"
+                  alt="Zavari Haus Signature Suite"
                   className="w-full h-full object-cover transition-transform duration-700 hover:scale-[1.03]"
                 />
                 
@@ -110,17 +111,17 @@ export const Hero: React.FC<HeroProps> = ({ onExploreSpaces, onOpenBookingWithDe
               <div className="p-6 pt-5 bg-[#FDFBF7] flex justify-between items-end border-t border-[#E8E1D6]">
                 <div>
                   <p className="text-[11px] font-medium uppercase tracking-[0.15em] text-[#77736E]">
-                    PENTHOUSE COLLECTION
+                    SIGNATURE COLLECTION
                   </p>
                   <h3 className="text-[26px] font-normal text-[#1C1C1C]" style={{ fontFamily: "'Cormorant Garamond', serif" }}>
-                    The Grand Penthouse
+                    The Skyview Signature Suite
                   </h3>
                 </div>
 
                 <div className="text-right">
                   <span className="block text-[10px] tracking-[0.15em] uppercase text-[#AAA39A]">RATE</span>
                   <span className="text-[23px] font-medium text-[#B8975A]" style={{ fontFamily: "'Cormorant Garamond', serif" }}>
-                    PKR 38,000
+                    PKR 6,500
                   </span>
                 </div>
               </div>

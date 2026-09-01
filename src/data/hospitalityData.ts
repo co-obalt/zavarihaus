@@ -73,7 +73,7 @@ export const GALLERY_DATA: GalleryItem[] = [
   },
   {
     id: 'g-6',
-    title: 'Penthouse Freestanding Tub',
+    title: 'Skyview Freestanding Tub',
     category: 'suites',
     image: '/images/suites/r1/imp_bath.jpg',
     caption: 'Custom travertine stone bath with organic botanical bath infusions.'
@@ -176,10 +176,10 @@ export const REVIEWS_DATA: GuestReview[] = [
   {
     id: 'rev-1',
     author: 'Zara & Tariq M.',
-    suiteTitle: 'The Grand Penthouse',
+    suiteTitle: 'The Skyview Signature Suite',
     rating: 5,
     date: 'August 2026',
-    comment: 'Zavari Haus is the embodiment of quiet luxury. The warm ivory tones, incredible attention to acoustic privacy, and private rooftop hearth made our anniversary stay unforgettable.',
+    comment: 'Zavari Haus is the embodiment of quiet luxury. The warm ivory tones, incredible attention to acoustic privacy, and private hearth made our anniversary stay unforgettable.',
     city: 'London / Islamabad'
   },
   {

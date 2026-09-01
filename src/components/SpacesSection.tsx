@@ -83,6 +83,8 @@ export const SpacesSection: React.FC<SpacesSectionProps> = ({
                 <img
                   src={suite.mainImage}
                   alt={suite.title}
+                  loading="lazy"
+                  decoding="async"
                   className="w-full h-full object-cover transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[1.03]"
                 />
 

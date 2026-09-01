@@ -5,12 +5,14 @@ interface HeaderProps {
   activeSection: string;
   onNavigate: (sectionId: string) => void;
   onOpenBooking: () => void;
+  onOpenWelcomeGuide?: () => void;
 }
 
 export const Header: React.FC<HeaderProps> = ({
   activeSection,
   onNavigate,
   onOpenBooking,
+  onOpenWelcomeGuide,
 }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -37,6 +39,16 @@ export const Header: React.FC<HeaderProps> = ({
   const handleNavClick = (id: string) => {
     onNavigate(id);
     setMobileMenuOpen(false);
+  };
+
+  const handleWelcomeGuideClick = () => {
+    setMobileMenuOpen(false);
+    if (onOpenWelcomeGuide) {
+      onOpenWelcomeGuide();
+    } else {
+      window.history.pushState(null, '', '/welcome-guide');
+      window.dispatchEvent(new PopStateEvent('popstate'));
+    }
   };
 
   return (
@@ -77,7 +89,7 @@ export const Header: React.FC<HeaderProps> = ({
           </button>
 
           {/* DESKTOP NAV ITEMS - MINIMAL & ELEGANT */}
-          <nav className="hidden lg:flex items-center space-x-6 xl:space-x-9">
+          <nav className="hidden lg:flex items-center space-x-6 xl:space-x-8">
             {navItems.map((item) => {
               const isActive = activeSection === item.id;
               return (
@@ -94,13 +106,20 @@ export const Header: React.FC<HeaderProps> = ({
                 </button>
               );
             })}
+
+            <button
+              onClick={handleWelcomeGuideClick}
+              className="text-[12px] xl:text-[13px] font-medium tracking-[0.18em] uppercase transition-all duration-200 py-1 text-[#B8975A] hover:text-[#513431] border-b border-transparent hover:border-[#B8975A]"
+            >
+              WELCOME GUIDE
+            </button>
           </nav>
 
           {/* DESKTOP MINIMAL BOOK NOW BUTTON */}
-          <div className="hidden lg:flex items-center">
+          <div className="hidden lg:flex items-center gap-3">
             <button
               onClick={onOpenBooking}
-              className="bg-transparent border border-[#B8975A] text-[#B8975A] hover:bg-[#B8975A] hover:text-[#1C1C1C] transition-all duration-300 text-[11px] xl:text-[12px] font-medium tracking-[0.2em] uppercase px-[26px] py-[10px]"
+              className="bg-transparent border border-[#B8975A] text-[#B8975A] hover:bg-[#B8975A] hover:text-[#1C1C1C] transition-all duration-300 text-[11px] xl:text-[12px] font-medium tracking-[0.2em] uppercase px-[24px] py-[10px]"
               style={{ borderRadius: '2px' }}
             >
               BOOK NOW
@@ -133,6 +152,12 @@ export const Header: React.FC<HeaderProps> = ({
                 {item.label}
               </button>
             ))}
+            <button
+              onClick={handleWelcomeGuideClick}
+              className="text-left text-[13px] font-semibold tracking-[0.16em] uppercase py-2 text-[#B8975A] border-b border-[#E8E1D6]/40"
+            >
+              RESIDENT WELCOME GUIDE
+            </button>
             <button
               onClick={() => {
                 setMobileMenuOpen(false);

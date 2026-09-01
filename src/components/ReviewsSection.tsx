@@ -121,7 +121,7 @@ export const ReviewsSection: React.FC = () => {
                       className="w-full bg-transparent border-b border-[#E8E1D6] py-2 text-[15px] text-[#1C1C1C] focus:outline-none focus:border-[#B8975A]"
                     >
                       <option value="Skyview Residence">Skyview Residence</option>
-                      <option value="The Grand Penthouse">The Grand Penthouse</option>
+                      <option value="The Skyview Signature Suite">The Skyview Signature Suite</option>
                       <option value="Heritage Duplex Suite">Heritage Duplex Suite</option>
                       <option value="Executive Studio">Executive Studio</option>
                       <option value="Garden Villa">Garden Villa</option>
