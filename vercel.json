@@ -1,4 +1,16 @@
 {
+  "redirects": [
+    {
+      "source": "/stay",
+      "destination": "/welcome-guide",
+      "permanent": true
+    },
+    {
+      "source": "/guide",
+      "destination": "/welcome-guide",
+      "permanent": true
+    }
+  ],
   "rewrites": [
     {
       "source": "/(.*)",

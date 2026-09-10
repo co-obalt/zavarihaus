@@ -67,7 +67,7 @@ export const SUITES_DATA: Suite[] = [
     badge: 'SKYVIEW STUDIO',
     title: 'Skyview Atelier Studio',
     tagline: 'Intimate high-floor corner residence designed for discerning executive travelers.',
-    pricePkr: 6000,
+    pricePkr: 6500,
     rateLabel: 'RATE / NIGHT',
     sizeSqFt: 780,
     bedrooms: 1,

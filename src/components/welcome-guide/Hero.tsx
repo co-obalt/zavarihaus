@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'motion/react';
-import { MapPin, Clock, Users, ArrowRight, CheckCircle, ChevronRight, Compass } from 'lucide-react';
+import { MapPin, Clock, Users, ArrowRight, CheckCircle, ChevronRight, Compass, Key } from 'lucide-react';
 import { PROPERTY_INFO, IMAGES, ACCESS_STEPS } from './data';
 
 interface HeroProps {
@@ -14,6 +14,19 @@ interface HeroProps {
 export default function Hero({ onNavigate, checkInStatus, setCheckInStatus, selectedSuite, setSelectedSuite }: HeroProps) {
   const [lahoreTime, setLahoreTime] = useState('');
   const [activeStep, setActiveStep] = useState(0);
+  const [copiedPasscode, setCopiedPasscode] = useState(false);
+
+  const handleCopyPasscode = () => {
+    try {
+      navigator.clipboard.writeText('0044#');
+      setCopiedPasscode(true);
+      setTimeout(() => setCopiedPasscode(false), 2000);
+    } catch {
+      // Fallback if clipboard API is restricted
+      setCopiedPasscode(true);
+      setTimeout(() => setCopiedPasscode(false), 2000);
+    }
+  };
 
   // Update Lahore Time (UTC + 5)
   useEffect(() => {
@@ -147,41 +160,56 @@ export default function Hero({ onNavigate, checkInStatus, setCheckInStatus, sele
           </div>
         </div>
 
-        {/* Suite Selection & Details */}
-        <div className="rounded-xl border border-gold-200 bg-white p-5 shadow-sm flex flex-col justify-between">
+        {/* Secure Lift Passcode Card */}
+        <div className="rounded-xl border-2 border-gold-300/80 bg-white p-5 shadow-md flex flex-col justify-between relative overflow-hidden">
+          {/* Decorative background glow */}
+          <div className="absolute -right-8 -top-8 w-24 h-24 bg-gold-100/50 rounded-full blur-xl pointer-events-none" />
+
           <div>
-            <div className="flex items-center justify-between mb-3">
-              <h3 className="font-serif text-lg font-medium text-stone-900">Your Boutique Suite</h3>
-              <Users className="h-5 w-5 text-gold-600" />
+            <div className="flex items-center justify-between mb-2">
+              <h3 className="font-serif text-lg font-bold text-stone-900 flex items-center gap-2">
+                Elevator Passcode
+              </h3>
+              <div className="p-1.5 bg-gold-50 border border-gold-200 rounded-lg">
+                <Key className="h-4 w-4 text-gold-600" />
+              </div>
             </div>
-            <p className="text-xs text-stone-500 font-light mb-4">
-              Select your booked boutique suite to personalize the digital guide instructions.
+
+            <p className="text-[11px] text-stone-500 font-light mb-3">
+              Press this code on the elevator keypad panel to reach your floor:
             </p>
-            <div className="space-y-2">
-              <select
-                value={selectedSuite}
-                onChange={(e) => setSelectedSuite(e.target.value)}
-                className="w-full rounded-lg border border-stone-200 bg-stone-50 px-3 py-2 text-xs font-medium text-stone-800 focus:border-gold-500 focus:ring-1 focus:ring-gold-500 focus:outline-none"
-              >
-                <option value="Skyview Suite F1">F1 - Skyview Suite (Floor 1)</option>
-                <option value="Sunset Suite F2">F2 - Sunset Suite (Floor 2)</option>
-                <option value="Skyview Suite F3">F3 - Skyview Suite (Floor 3)</option>
-                <option value="Sunset Suite F4">F4 - Sunset Suite (Floor 4)</option>
-                <option value="Royal Skyview Suite F5">F5 - Royal Skyview Suite (Floor 5)</option>
-                <option value="Executive Suite G1">G1 - Executive Suite (Ground Floor)</option>
-              </select>
-              <div className="p-3 bg-gold-50/50 rounded-lg border border-gold-100/50 text-xs text-gold-800 space-y-1">
-                <p className="font-medium">
-                  {selectedSuite.includes('Skyview') ? 'Skyview Premium' : selectedSuite.includes('Sunset') ? 'Sunset Premium' : 'Boutique Luxury'} Suite
-                </p>
-                <p className="text-[11px] text-stone-600 font-light">
-                  {selectedSuite.includes('Skyview') 
-                    ? 'Features panoramic views of the illuminated Eiffel replica.' 
-                    : 'Features gorgeous sunset twilight views of the Bahria skyline.'}
-                </p>
+
+            {/* Giant Highlighted Passcode Box */}
+            <div 
+              onClick={handleCopyPasscode}
+              className="group relative cursor-pointer overflow-hidden rounded-xl border-2 border-gold-400 bg-gradient-to-br from-stone-950 via-stone-900 to-stone-950 p-4 text-center shadow-lg transition-all hover:border-gold-300 hover:shadow-gold-950/20 active:scale-[0.98]"
+              title="Click to copy passcode"
+            >
+              <div className="flex items-center justify-center gap-2 mb-1">
+                <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 animate-pulse" />
+                <span className="text-[10px] font-mono font-bold tracking-[0.2em] uppercase text-gold-400">
+                  SECURE LIFT CODE
+                </span>
+              </div>
+
+              <div className="my-1 font-mono text-4xl sm:text-5xl font-black tracking-[0.2em] text-white drop-shadow-[0_2px_12px_rgba(234,179,8,0.3)]">
+                0044#
+              </div>
+
+              <div className="mt-2 flex items-center justify-center gap-1.5 text-[11px] font-semibold">
+                {copiedPasscode ? (
+                  <span className="text-emerald-400 font-bold flex items-center gap-1">
+                    <CheckCircle className="h-3.5 w-3.5" /> Passcode Copied!
+                  </span>
+                ) : (
+                  <span className="flex items-center gap-1 text-stone-300 text-[11px]">
+                    Click box to copy passcode <ArrowRight className="h-3 w-3 text-gold-400 group-hover:translate-x-0.5 transition-transform" />
+                  </span>
+                )}
               </div>
             </div>
           </div>
+
           <div className="border-t border-stone-100 pt-3 flex justify-between items-center mt-3">
             <span className="text-xs text-stone-500 font-light">Need WIFI?</span>
             <button
@@ -296,7 +324,7 @@ export default function Hero({ onNavigate, checkInStatus, setCheckInStatus, sele
                 <div className="bg-gold-50/70 border border-gold-200/80 rounded-lg p-3 text-xs text-stone-800 space-y-1">
                   <p className="font-semibold text-gold-900">🔑 Elevator Keycode Access:</p>
                   <p className="font-mono text-xs font-bold text-stone-900">
-                    Lift Passcode: <span className="bg-white border border-gold-300 px-2 py-0.5 rounded text-gold-800">0440#</span>
+                    Lift Passcode: <span className="bg-white border border-gold-300 px-2 py-0.5 rounded text-gold-800">0044#</span>
                   </p>
                 </div>
               )}

@@ -16,10 +16,24 @@ const WelcomeGuide = lazy(() => import('./pages/WelcomeGuide'));
 const SuiteDetailModal = lazy(() => import('./components/SuiteDetailModal').then(m => ({ default: m.SuiteDetailModal })));
 const BookingModal = lazy(() => import('./components/BookingModal').then(m => ({ default: m.BookingModal })));
 
+const isWelcomeGuidePath = (pathname: string) => {
+  const path = pathname.toLowerCase().trim();
+  return (
+    path.includes('welcome') ||
+    path.includes('guide') ||
+    path.includes('stay') ||
+    path === '/stay' ||
+    path === '/guide'
+  );
+};
+
 export default function App() {
   const [currentRoute, setCurrentRoute] = useState<'home' | 'welcome-guide'>(() => {
     const path = window.location.pathname.toLowerCase();
-    if (path.includes('welcome') || path.includes('guide')) {
+    if (isWelcomeGuidePath(path)) {
+      if (path !== '/welcome-guide') {
+        window.history.replaceState(null, '', '/welcome-guide');
+      }
       return 'welcome-guide';
     }
     return 'home';
@@ -37,16 +51,24 @@ export default function App() {
 
   const [activeBooking, setActiveBooking] = useState<BookingInquiry | null>(null);
 
-  // Handle browser back/forward buttons
+  // Handle browser back/forward buttons and initial route canonicalization
   useEffect(() => {
     const handlePopState = () => {
       const path = window.location.pathname.toLowerCase();
-      if (path.includes('welcome') || path.includes('guide')) {
+      if (isWelcomeGuidePath(path)) {
+        if (path !== '/welcome-guide') {
+          window.history.replaceState(null, '', '/welcome-guide');
+        }
         setCurrentRoute('welcome-guide');
       } else {
         setCurrentRoute('home');
       }
     };
+
+    const path = window.location.pathname.toLowerCase();
+    if (isWelcomeGuidePath(path) && path !== '/welcome-guide') {
+      window.history.replaceState(null, '', '/welcome-guide');
+    }
 
     window.addEventListener('popstate', handlePopState);
     return () => window.removeEventListener('popstate', handlePopState);

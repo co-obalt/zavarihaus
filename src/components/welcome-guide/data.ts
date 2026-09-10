@@ -62,8 +62,8 @@ export const ACCESS_STEPS = [
     iconName: "UserCheck"
   },
   {
-    title: "Secure Lift Passcode (0440#)",
-    description: "Enter passcode 0440# on the elevator touchpad panel or tap your access card to reach your assigned suite floor.",
+    title: "Secure Lift Passcode (0044#)",
+    description: "Enter passcode 0044# on the elevator touchpad panel or tap your access card to reach your assigned suite floor.",
     iconName: "KeyRound"
   },
   {
@@ -220,9 +220,9 @@ const checkinAnswer = "Standard check-in is at **12:00 PM**. If you arrive early
 
 // Help answers for Digital Concierge smart-chat module
 export const CONCIERGE_ANSWERS: Record<string, string> = {
-  lift: "To use the elevator, enter passcode **0440#** on the lift touchpad panel.",
-  passcode: "To use the elevator, enter passcode **0440#** on the lift touchpad panel.",
-  elevator: "To use the elevator, enter passcode **0440#** on the lift touchpad panel.",
+  lift: "To use the elevator, enter passcode **0044#** on the lift touchpad panel.",
+  passcode: "To use the elevator, enter passcode **0044#** on the lift touchpad panel.",
+  elevator: "To use the elevator, enter passcode **0044#** on the lift touchpad panel.",
   wifi: "Each floor at Zavari Haus has its dedicated high-speed router (`Zavari Haus F1` through `Zavari Haus F5`) for maximum speed. All 5 floors share the exact same password: **Zavari@2026**. Simply copy your floor network name from the Wi-Fi card!",
   "wi-fi": "Each floor at Zavari Haus has its dedicated high-speed router (`Zavari Haus F1` through `Zavari Haus F5`) for maximum speed. All 5 floors share the exact same password: **Zavari@2026**. Simply copy your floor network name from the Wi-Fi card!",
   checkout: checkoutAnswer,
